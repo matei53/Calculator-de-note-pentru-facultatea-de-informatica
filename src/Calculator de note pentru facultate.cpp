@@ -52,14 +52,14 @@ int main()
 
     std::vector<std::shared_ptr<Buton>> butoane_serii;
     butoane_serii.push_back(std::make_shared<Buton>(Buton({ 400, 155 }, { 85, 85 }, 50, "13", font, sf::Color::Green, sf::Color::Yellow)));
-    butoane_serii.push_back(std::make_shared<Buton>(Buton({ 500, 155 }, { 85, 85 }, 50, "14", font, sf::Color::Green, sf::Color::Yellow)));
-    butoane_serii.push_back(std::make_shared<Buton>(Buton({ 600, 155 }, { 85, 85 }, 50, "15", font, sf::Color::Green, sf::Color::Yellow)));
-    butoane_serii.push_back(std::make_shared<Buton>(Buton({ 700, 155 }, { 85, 85 }, 50, "23", font, sf::Color::Green, sf::Color::Yellow)));
-    butoane_serii.push_back(std::make_shared<Buton>(Buton({ 800, 155 }, { 85, 85 }, 50, "24", font, sf::Color::Green, sf::Color::Yellow)));
-    butoane_serii.push_back(std::make_shared<Buton>(Buton({ 900, 155 }, { 85, 85 }, 50, "25", font, sf::Color::Green, sf::Color::Yellow)));
-    butoane_serii.push_back(std::make_shared<Buton>(Buton({ 1000, 155 }, { 85, 85 }, 50, "33", font, sf::Color::Green, sf::Color::Yellow)));
-    butoane_serii.push_back(std::make_shared<Buton>(Buton({ 1100, 155 }, { 85, 85 }, 50, "34", font, sf::Color::Green, sf::Color::Yellow)));
-    butoane_serii.push_back(std::make_shared<Buton>(Buton({ 1200, 155 }, { 85, 85 }, 50, "35", font, sf::Color::Green, sf::Color::Yellow)));
+    butoane_serii.push_back(std::make_shared<Buton>(Buton({500, 155}, { 85, 85 }, 50, "14", font, sf::Color::Green, sf::Color::Yellow)));
+    butoane_serii.push_back(std::make_shared<Buton>(Buton({600, 155}, { 85, 85 }, 50, "15", font, sf::Color::Green, sf::Color::Yellow)));
+    butoane_serii.push_back(std::make_shared<Buton>(Buton({700, 155}, { 85, 85 }, 50, "23", font, sf::Color::Green, sf::Color::Yellow)));
+    butoane_serii.push_back(std::make_shared<Buton>(Buton({800, 155}, { 85, 85 }, 50, "24", font, sf::Color::Green, sf::Color::Yellow)));
+    butoane_serii.push_back(std::make_shared<Buton>(Buton({900, 155}, { 85, 85 }, 50, "25", font, sf::Color::Green, sf::Color::Yellow)));
+    butoane_serii.push_back(std::make_shared<Buton>(Buton({1000, 155}, { 85, 85 }, 50, "33", font, sf::Color::Green, sf::Color::Yellow)));
+    butoane_serii.push_back(std::make_shared<Buton>(Buton({1100, 155}, { 85, 85 }, 50, "34", font, sf::Color::Green, sf::Color::Yellow)));
+    butoane_serii.push_back(std::make_shared<Buton>(Buton({1200, 155}, { 85, 85 }, 50, "35", font, sf::Color::Green, sf::Color::Yellow)));
     for (std::shared_ptr<Buton> b : butoane_serii)
     {
         b->align();
@@ -67,9 +67,9 @@ int main()
         auto click_handler = std::make_shared<ClickHandler>();
         b->setClickHandler(click_handler);
         click_handler->onclick = [b]()
-            {
-                b->animateClick();
-            };
+        {
+            b->animateClick();
+        };
         app.addObject(b);
     }
 
@@ -115,9 +115,9 @@ int main()
                 auto handler = std::make_shared<ClickHandler>();
                 buton_inainte->setClickHandler(handler);
                 handler->onclick = [buton_inainte]()
-                    {
-                        buton_inainte->animateClick();
-                    };
+                {
+                    buton_inainte->animateClick();
+                };
                 buton_inainte->align();
                 app.addObject(buton_inainte);
 
@@ -145,9 +145,9 @@ int main()
                         auto click_handler = std::make_shared<ClickHandler>();
                         b->setClickHandler(click_handler);
                         click_handler->onclick = [b]()
-                            {
-                                b->changeColor(sf::Color::Cyan);
-                            };
+                        {
+                            b->changeColor(sf::Color::Cyan);
+                        };
                         app.addObject(b);
                     }
                 }
