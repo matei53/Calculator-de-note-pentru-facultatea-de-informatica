@@ -36,11 +36,11 @@ int main()
 
     f.close();
 
-    Aplicatie app("Calculator note", 1700, 980);
+    Aplicatie app("Calculator note", 1900, 980);
 
     sf::Font font("..\\..\\..\\..\\src\\Roboto-Black.ttf"); //try
 
-    auto titlu = std::make_shared<TitleText>(TitleText({ 0, 0 }, { 1700, 135 }, 80, "Welcome", font,
+    auto titlu = std::make_shared<TitleText>(TitleText({ 0, 0 }, { 1900, 135 }, 80, "Welcome", font,
         sf::Color::Yellow, sf::Color::Red, sf::Color::Green, sf::Color::Blue));
     app.addObject(titlu);
     titlu->animateColors();
@@ -93,6 +93,10 @@ int main()
     std::vector<NoteMaterie> notare_materii;
 
     std::shared_ptr<TitleText> input_activ;
+    std::shared_ptr<TitleText> titlu_medie_finala_bursa;
+    std::shared_ptr<TitleText> titlu_medie_finala_buget;
+    std::shared_ptr<TitleText> medie_finala_bursa;
+    std::shared_ptr<TitleText> medie_finala_buget;
 
     while (app.isRunning())
     {
@@ -343,6 +347,17 @@ int main()
                     for (std::shared_ptr<Buton> b : butoane_serii) app.removeObject(b);
                     for (std::shared_ptr<Buton> b : butoane_optionale) app.removeObject(b);
                     for (std::shared_ptr<Buton> b : butoane_facultative) app.removeObject(b);
+
+                    titlu_medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 5 }, { 155, 35 }, 20, "MEDIE BURSA", font, sf::Color::Magenta));
+                    medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 40 }, { 155, 85 }, 50, "", font, sf::Color::Yellow));
+                    titlu_medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 150 }, { 155, 35 }, 20, "MEDIE BUGET", font, sf::Color::Magenta));
+                    medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 185 }, { 155, 85 }, 50, "", font, sf::Color::Yellow));
+                    titlu_medie_finala_bursa->align();
+                    titlu_medie_finala_buget->align();
+                    app.addObject(titlu_medie_finala_bursa);
+                    app.addObject(titlu_medie_finala_buget);
+                    app.addObject(medie_finala_bursa);
+                    app.addObject(medie_finala_buget);
 
                     float x = 5, y = 5;
                     for (Materie m : materii)
