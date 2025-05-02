@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project("Calculator-de-note-pentru-facultatea-de-informatic")
+project("Calculator-de-note-pentru-facultatea-de-informatica")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
