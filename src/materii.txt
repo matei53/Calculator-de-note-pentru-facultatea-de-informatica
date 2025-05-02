@@ -1,0 +1,471 @@
+Structuri algebrice in informatica
+credit: 4
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+Test Seminar 1
+parte: 1
+max: 10
+prag: 0
+nota: 0.00
+Test Seminar 2
+parte: 1
+max: 10
+prag: 0
+nota: 0.00
+nota_finala_seria4: 0
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+Test Seminar
+parte: 1
+max: 10
+prag: 0
+nota: 0.00
+Activitate Seminar
+parte: 1
+max: 10
+prag: 0
+nota: 0.00
+nota_finala_seria5: 0
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+Seminar
+parte: 2
+max: 10
+prag: 0
+nota: 0.00
+-
+Calcul diferential si integral
+credit: 6
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+Activitate Seminar
+parte: 1
+max: 1
+prag: 0
+nota: 0.00
+nota_finala_seria4: 0
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+Activitate Seminar
+parte: 1
+max: 1
+prag: 0
+nota: 0.00
+nota_finala_seria5: 0
+Examen
+parte: 8
+max: 10
+prag: 5
+nota: 0.00
+Activitate Seminar
+parte: 2
+max: 2
+prag: 0
+nota: 0.00
+-
+Tehnici web
+credit: 5
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Programarea algoritmilor
+credit: 5
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Arhitectura sistemelor e calcul
+credit: 4
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Instrumente si tehnici de baza in info
+credit: 4
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Geometrie si algebra liniara
+credit: 4
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Baze de date
+credit: 5
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Structuri de date
+credit: 5
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Limbaje formale si automate
+credit: 4
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Programare orientata pe obiecte
+credit: 6
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Logica matematica si computationala
+credit: 4
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Engleza 1
+credit: 2
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Engleza 2
+credit: 2
+an: 1
+optional: 0
+facultativ: 0
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Etica si integritate academica
+credit: 2
+an: 1
+optional: 0
+facultativ: 1
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Informatica - aducere la nivel
+credit: 2
+an: 1
+optional: 0
+facultativ: 1
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Educatie fizica si metodica
+credit: 2
+an: 1
+optional: 0
+facultativ: 1
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+-
+Programare competitive
+credit: 2
+an: 1
+optional: 0
+facultativ: 1
+nota_finala_seria3: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria4: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00
+nota_finala_seria5: 0.00
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: 0.00

@@ -4,7 +4,7 @@
 
 int main()
 {
-    std::ifstream f("C:\\Users\\matei\\Documents\\materii.txt");
+    std::ifstream f("..\\..\\..\\..\\src\\materii.txt");
     std::vector<Materie> materii;
     std::string line;
     while (getline(f, line))
@@ -38,7 +38,7 @@ int main()
 
     Aplicatie app("Calculator note", 1700, 980);
 
-    sf::Font font("C:\\Users\\matei\\Downloads\\Roboto\\static\\Roboto-Black.ttf"); //try
+    sf::Font font("..\\..\\..\\..\\src\\Roboto-Black.ttf"); //try
 
     auto titlu = std::make_shared<TitleText>(TitleText({ 0, 0 }, { 1700, 135 }, 80, "Welcome", font,
         sf::Color::Yellow, sf::Color::Red, sf::Color::Green, sf::Color::Blue));

@@ -118,15 +118,6 @@ void Aplicatie::updateMousePosition()
     mouse_position = sf::Mouse::getPosition(window);
 }
 
-//void Aplicatie::start()
-//{
-//    while (isRunning())
-//    {
-//        update();
-//        render();
-//    }
-//}
-
 const bool Aplicatie::isRunning() const
 {
     return window.isOpen();
@@ -140,14 +131,6 @@ void Aplicatie::addObject(std::shared_ptr<Obiect> object)
         obiecte_clickable.push_back(object);
     }
 }
-
-//void Aplicatie::addObjects(const std::vector<std::shared_ptr<Obiect>>& objects)
-//{
-//    for (std::shared_ptr<Obiect> object : objects)
-//    {
-//        addObject(object);
-//    }
-//}
 
 void Aplicatie::addEventHandler(EventHandler event_handler_)
 {

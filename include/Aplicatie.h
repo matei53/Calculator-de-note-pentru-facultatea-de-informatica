@@ -28,14 +28,12 @@ public:
 	void setClick(std::shared_ptr<Obiect>);
 	std::shared_ptr<Obiect> getClick() const;
 
-	//void start();
 	void update();
 	void render();
 
 	const bool isRunning() const;
 
 	void addObject(std::shared_ptr<Obiect>);
-	//void addObjects(const std::vector<std::shared_ptr<Obiect>>&);
 	void addEventHandler(EventHandler);
 
 	void removeObject(std::shared_ptr<Obiect>);
