@@ -85,7 +85,6 @@ int main()
         std::vector<std::shared_ptr<Buton>> salvari;
     };
     std::vector<NoteMaterie> notare_materii;
-    std::shared_ptr<TextInput> input_activ;
     std::shared_ptr<TitleText> titlu_medie_finala_bursa;
     std::shared_ptr<TitleText> titlu_medie_finala_buget;
     std::shared_ptr<TitleText> medie_finala_bursa;
@@ -357,7 +356,7 @@ int main()
                                 {
                                     y1 += 35;
                                     auto ev = std::make_shared<TitleText>(TitleText({ x, y1 }, { 155, 35 }, 15, e.getTip(), font, sf::Color::Green));
-                                    auto inp = std::make_shared<TextInput>(TextInput({ x + 160, y1 }, { 75, 35 }, 15, "> ", font, sf::Color::Green, 4));
+                                    auto inp = std::make_shared<TextInput>(TextInput({ x + 160, y1 }, { 75, 35 }, 15, "> ", font, sf::Color::Green, 7));
                                     auto save = std::make_shared<Buton>(Buton({ x + 240, y1 }, { 35, 35 }, 15, "OK", font, sf::Color::Green, sf::Color::Red));
                                     ev->align(); inp->align(); save->align();
                                     inp->setClickable(1);
@@ -383,6 +382,7 @@ int main()
                 {
                     if (std::find(m.inputuri.begin(), m.inputuri.end(), app.getClick()) != m.inputuri.end())
                     {
+                        auto input_activ = app.getActiveInput();
                         if (input_activ != nullptr)
                         {
                             input_activ->stopAnimation();
@@ -391,7 +391,7 @@ int main()
                         }
                         auto inp = std::dynamic_pointer_cast<TextInput>(app.getClick());
                         inp->animateInput();
-                        input_activ = inp;
+                        app.setActiveInput(inp);
                         app.setClick(nullptr);
                         break;
                     }

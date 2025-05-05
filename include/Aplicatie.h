@@ -8,15 +8,12 @@
 #include <vector>
 #include <functional>
 
-using EventHandler = std::function<void(const sf::Event&)>;
-
 class Aplicatie
 {
 	std::vector<std::shared_ptr<Obiect>> obiecte;
 	std::vector<std::shared_ptr<Obiect>> obiecte_clickable;
 	std::shared_ptr<TextInput> active_input;
 	sf::RenderWindow window;
-	EventHandler event_handler;
 	sf::Vector2i mouse_position;
 	std::shared_ptr<Obiect> clicked = nullptr;
 
@@ -34,10 +31,12 @@ public:
 	const bool isRunning() const;
 
 	void addObject(std::shared_ptr<Obiect>);
-	void addEventHandler(EventHandler);
 
 	void removeObject(std::shared_ptr<Obiect>);
 	void removeClickableObject(std::shared_ptr<Obiect>);
+
+	std::shared_ptr<TextInput> getActiveInput() const;
+	void setActiveInput(std::shared_ptr<TextInput>);
 };
 
 #endif

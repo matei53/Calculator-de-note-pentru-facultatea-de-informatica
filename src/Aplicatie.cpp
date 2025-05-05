@@ -39,8 +39,6 @@ void Aplicatie::updateEvents()
 {
     while (const std::optional event = window.pollEvent())
     {
-        //if (event_handler) event_handler(event);
-
         if (event->is<sf::Event::Closed>())
             window.close();
         else if (event->is<sf::Event::KeyPressed>())
@@ -83,6 +81,9 @@ void Aplicatie::updateEvents()
                         break;
                     case sf::Keyboard::Scancode::Period:
                         active_input->pushCharacter('.');
+                        break;
+                    case sf::Keyboard::Scancode::Backspace:
+                        active_input->popCharacter();
                         break;
                 }
             }
@@ -131,11 +132,6 @@ void Aplicatie::addObject(std::shared_ptr<Obiect> object)
     }
 }
 
-void Aplicatie::addEventHandler(EventHandler event_handler_)
-{
-    event_handler = event_handler_;
-}
-
 void Aplicatie::removeObject(std::shared_ptr<Obiect> ob)
 {
     obiecte.erase(std::remove(obiecte.begin(), obiecte.end(), ob), obiecte.end());
@@ -151,4 +147,14 @@ void Aplicatie::removeClickableObject(std::shared_ptr<Obiect> ob)
     {
         obiecte_clickable.erase(std::remove(obiecte_clickable.begin(), obiecte_clickable.end(), ob), obiecte_clickable.end());
     }
+}
+
+std::shared_ptr<TextInput> Aplicatie::getActiveInput() const
+{
+    return active_input;
+}
+
+void Aplicatie::setActiveInput(std::shared_ptr<TextInput> inp)
+{
+    active_input = inp;
 }

@@ -45,6 +45,7 @@ void TextInput::pushCharacter(const char character_)
 		text_string.pop_back();
 	}
 	text.setString(text_string);
+	align();
 }
 
 void TextInput::popCharacter()
@@ -55,6 +56,7 @@ void TextInput::popCharacter()
 		text_string.pop_back();
 	}
 	text.setString(text_string);
+	align();
 }
 
 void TextInput::animateInput()
