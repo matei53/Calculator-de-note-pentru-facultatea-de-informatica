@@ -11,4 +11,4 @@ Clasa Aplicatie și clasa Obiect - cu clasele derivate Buton, TextInput (căsuț
 Clasele Materie, Notare și Evaluare sunt folosite pentru a reține toate materiile și metoda de evaluare pentru fiecare dintre acestea. Fiecare materie are trei metode de evaluare separate, una pentru fiecare serie.
 
 ## Resurse
-[SFML](https://github.com/SFML/SFML/tree/2.6.1) (Zlib)
+[SFML](https://github.com/SFML/SFML/tree/3.0.1) (Zlib)
