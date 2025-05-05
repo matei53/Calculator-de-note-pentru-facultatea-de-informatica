@@ -101,7 +101,6 @@ void Aplicatie::updateEvents()
                         mouse_position.y >= leftUpper.y &&
                         mouse_position.y <= rightBottom.y)
                     {
-                        object->getClickHandler()->onclick();
                         clicked = object;
                         if (std::dynamic_pointer_cast<TextInput>(object))
                             active_input = std::dynamic_pointer_cast<TextInput>(object);

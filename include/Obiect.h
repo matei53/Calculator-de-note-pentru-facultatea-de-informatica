@@ -4,17 +4,12 @@
 #include "SFML/Graphics.hpp"
 #include <functional>
 
-struct ClickHandler
-{
-	std::function<void()> onclick;
-};
-
 class Obiect
 {
 protected:
 	sf::Vector2f pozitie;
 	sf::Vector2f marime;
-	std::shared_ptr<ClickHandler> click_handler;
+	bool clickable;
 	std::shared_ptr<sf::Clock> clock;
 
 	unsigned int marime_font;
@@ -34,8 +29,7 @@ public:
 	void changeColor(const sf::Color);
 	std::pair<sf::Vector2f, sf::Vector2f> getBounds() const;
 	bool isClickable() const;
-	void setClickHandler(std::shared_ptr<ClickHandler>);
-	std::shared_ptr<ClickHandler> getClickHandler();
+	void setClickable(const bool);
 };
 
 #endif

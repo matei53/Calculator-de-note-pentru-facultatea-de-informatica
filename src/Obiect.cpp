@@ -35,15 +35,10 @@ std::pair<sf::Vector2f, sf::Vector2f> Obiect::getBounds() const
 
 bool Obiect::isClickable() const
 {
-	return click_handler != nullptr;
+	return clickable;
 }
 
-void Obiect::setClickHandler(std::shared_ptr<ClickHandler> click_handler_)
+void Obiect::setClickable(const bool c)
 {
-	this->click_handler = click_handler_;
-}
-
-std::shared_ptr<ClickHandler> Obiect::getClickHandler()
-{
-	return this->click_handler;
+	clickable = c;
 }

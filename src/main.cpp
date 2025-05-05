@@ -63,13 +63,7 @@ int main()
     for (std::shared_ptr<Buton> b : butoane_serii)
     {
         b->align();
-
-        auto click_handler = std::make_shared<ClickHandler>();
-        b->setClickHandler(click_handler);
-        click_handler->onclick = [b]()
-            {
-                b->animateClick();
-            };
+        b->setClickable(1);
         app.addObject(b);
     }
 
@@ -92,7 +86,7 @@ int main()
     };
     std::vector<NoteMaterie> notare_materii;
 
-    std::shared_ptr<TitleText> input_activ;
+    std::shared_ptr<TextInput> input_activ;
     std::shared_ptr<TitleText> titlu_medie_finala_bursa;
     std::shared_ptr<TitleText> titlu_medie_finala_buget;
     std::shared_ptr<TitleText> medie_finala_bursa;
@@ -109,19 +103,15 @@ int main()
             {
                 for (std::shared_ptr<Buton> b : butoane_serii)
                 {
-                    b->setClickHandler(nullptr);
+                    b->setClickable(0);
                     app.removeClickableObject(b);
                 }
                 auto b = std::dynamic_pointer_cast<Buton>(app.getClick());
+                b->animateClick();
                 app.setClick(nullptr);
 
                 buton_inainte = std::make_shared<Buton>(Buton({ 1300, 155 }, { 185, 85 }, 50, "Inainte", font, sf::Color::Magenta, sf::Color::Red));
-                auto handler = std::make_shared<ClickHandler>();
-                buton_inainte->setClickHandler(handler);
-                handler->onclick = [buton_inainte]()
-                    {
-                        buton_inainte->animateClick();
-                    };
+                buton_inainte->setClickable(1);
                 buton_inainte->align();
                 app.addObject(buton_inainte);
 
@@ -146,12 +136,7 @@ int main()
                     for (std::shared_ptr<Buton> b : butoane_facultative)
                     {
                         b->align();
-                        auto click_handler = std::make_shared<ClickHandler>();
-                        b->setClickHandler(click_handler);
-                        click_handler->onclick = [b]()
-                            {
-                                b->changeColor(sf::Color::Cyan);
-                            };
+                        b->setClickable(1);
                         app.addObject(b);
                     }
                 }
@@ -173,12 +158,7 @@ int main()
                     for (std::shared_ptr<Buton> b : butoane_facultative)
                     {
                         b->align();
-                        auto click_handler = std::make_shared<ClickHandler>();
-                        b->setClickHandler(click_handler);
-                        click_handler->onclick = [b]()
-                            {
-                                b->changeColor(sf::Color::Cyan);
-                            };
+                        b->setClickable(1);
                         app.addObject(b);
                     }
 
@@ -198,12 +178,7 @@ int main()
                     for (std::shared_ptr<Buton> b : butoane_optionale)
                     {
                         b->align();
-                        auto click_handler = std::make_shared<ClickHandler>();
-                        b->setClickHandler(click_handler);
-                        click_handler->onclick = [b]()
-                            {
-                                b->changeColor(sf::Color::Cyan);
-                            };
+                        b->setClickable(1);
                         app.addObject(b);
                     }
                 }
@@ -230,12 +205,7 @@ int main()
                     for (std::shared_ptr<Buton> b : butoane_optionale)
                     {
                         b->align();
-                        auto click_handler = std::make_shared<ClickHandler>();
-                        b->setClickHandler(click_handler);
-                        click_handler->onclick = [b]()
-                            {
-                                b->changeColor(sf::Color::Cyan);
-                            };
+                        b->setClickable(1);
                         app.addObject(b);
                     }
                 }
@@ -247,10 +217,11 @@ int main()
                 {
                     for (std::shared_ptr<Buton> b : butoane_optionale)
                     {
-                        b->setClickHandler(nullptr);
+                        b->setClickable(0);
                         app.removeClickableObject(b);
                     }
                     auto b = std::dynamic_pointer_cast<Buton>(app.getClick());
+                    b->changeColor(sf::Color::Cyan);
                     for (Materie m : materii)
                     {
                         if (m.getNume() == b->getText())
@@ -263,7 +234,8 @@ int main()
                 else if (an == 3)
                 {
                     auto b = std::dynamic_pointer_cast<Buton>(app.getClick());
-                    b->setClickHandler(nullptr);
+                    b->changeColor(sf::Color::Cyan);
+                    b->setClickable(0);
                     app.removeClickableObject(b);
 
                     int n = 0;
@@ -272,13 +244,13 @@ int main()
                     {
                         int nr = 0;
                         for (int i = 0; i <= 23; i++)
-                            if (butoane_optionale.at(i)->getClickHandler() == nullptr)
+                            if (!butoane_optionale.at(i)->isClickable())
                                 nr++;
                         if (nr == 3)
                         {
                             for (int i = 0; i <= 23; i++)
                             {
-                                butoane_optionale.at(i)->setClickHandler(nullptr);
+                                butoane_optionale.at(i)->setClickable(0);
                                 app.removeClickableObject(butoane_optionale.at(i));
                             }
                         }
@@ -287,13 +259,13 @@ int main()
                     {
                         int nr = 0;
                         for (int i = 24; i <= 41; i++)
-                            if (butoane_optionale.at(i)->getClickHandler() == nullptr)
+                            if (!butoane_optionale.at(i)->isClickable())
                                 nr++;
                         if (nr == 3)
                         {
                             for (int i = 23; i <= 41; i++)
                             {
-                                butoane_optionale.at(i)->setClickHandler(nullptr);
+                                butoane_optionale.at(i)->setClickable(0);
                                 app.removeClickableObject(butoane_optionale.at(i));
                             }
                         }
@@ -312,7 +284,8 @@ int main()
             else if (std::find(butoane_facultative.begin(), butoane_facultative.end(), app.getClick()) != butoane_facultative.end())
             {
                 auto b = std::dynamic_pointer_cast<Buton>(app.getClick());
-                b->setClickHandler(nullptr);
+                b->changeColor(sf::Color::Cyan);
+                b->setClickable(0);
                 app.removeClickableObject(b);
                 app.setClick(nullptr);
 
@@ -331,7 +304,7 @@ int main()
                 app.setClick(nullptr);
                 bool ok = 1;
                 for (std::shared_ptr<Buton> b : butoane_optionale)
-                    if (b->getClickHandler() != nullptr)
+                    if (b->isClickable())
                     {
                         ok = 0;
                         break;
@@ -388,15 +361,8 @@ int main()
                                     auto inp = std::make_shared<TextInput>(TextInput({ x + 160, y1 }, { 75, 35 }, 15, "", font, sf::Color::Green, 4));
                                     auto save = std::make_shared<Buton>(Buton({ x + 240, y1 }, { 35, 35 }, 15, "OK", font, sf::Color::Green, sf::Color::Red));
                                     ev->align(); inp->align(); save->align();
-                                    auto handler1 = std::make_shared<ClickHandler>();
-                                    inp->setClickHandler(handler1);
-                                    handler1->onclick = [inp]() {};
-                                    auto handler2 = std::make_shared<ClickHandler>();
-                                    save->setClickHandler(handler2);
-                                    handler2->onclick = [save]()
-                                        {
-                                            save->animateClick();
-                                        };
+                                    inp->setClickable(1);
+                                    save->setClickable(1);
                                     M.metode_evaluare.push_back(ev);
                                     M.inputuri.push_back(inp);
                                     M.salvari.push_back(save);
