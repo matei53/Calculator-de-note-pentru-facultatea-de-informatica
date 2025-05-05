@@ -62,3 +62,8 @@ void TextInput::animateInput()
 	if (!clock) clock = std::make_unique<sf::Clock>();
 	clock->restart();
 }
+
+void TextInput::stopAnimation()
+{
+	clock = nullptr;
+}

@@ -18,6 +18,7 @@ public:
 	void popCharacter();
 
 	void animateInput();
+	void stopAnimation();
 };
 
 #endif
