@@ -382,18 +382,27 @@ int main()
                 {
                     if (std::find(m.inputuri.begin(), m.inputuri.end(), app.getClick()) != m.inputuri.end())
                     {
-                        auto input_activ = app.getActiveInput();
-                        if (input_activ != nullptr)
-                        {
-                            input_activ->stopAnimation();
-                            if (input_activ->getText().back() == '|')
-                                input_activ->popCharacter();
-                        }
+                        if (app.getActiveInput())
+                            app.getActiveInput()->stopAnimation();
                         auto inp = std::dynamic_pointer_cast<TextInput>(app.getClick());
                         inp->animateInput();
                         app.setActiveInput(inp);
                         app.setClick(nullptr);
                         break;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < m.salvari.size(); i++)
+                        {
+                            if (m.salvari.at(i) == app.getClick())
+                            {
+                                std::shared_ptr<Buton> sav = std::dynamic_pointer_cast<Buton>(app.getClick());
+                                sav->animateClick();
+                                app.setClick(nullptr);
+                                
+                                break;
+                            }
+                        }
                     }
                 }
             }

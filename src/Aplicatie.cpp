@@ -83,7 +83,8 @@ void Aplicatie::updateEvents()
                         active_input->pushCharacter('.');
                         break;
                     case sf::Keyboard::Scancode::Backspace:
-                        active_input->popCharacter();
+                        if (active_input->getText() != "> " && active_input->getText() != "> |")
+                            active_input->popCharacter();
                         break;
                 }
             }
@@ -103,8 +104,6 @@ void Aplicatie::updateEvents()
                         mouse_position.y <= rightBottom.y)
                     {
                         clicked = object;
-                        if (std::dynamic_pointer_cast<TextInput>(object))
-                            active_input = std::dynamic_pointer_cast<TextInput>(object);
                         break;
                     }
                 }

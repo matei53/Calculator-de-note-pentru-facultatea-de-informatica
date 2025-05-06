@@ -37,6 +37,7 @@ std::string TextInput::getText() const
 
 void TextInput::pushCharacter(const char character_)
 {
+	stopAnimation();
 	std::string text_string = getText();
 	text_string.push_back(character_);
 	text.setString(text_string);
@@ -46,17 +47,17 @@ void TextInput::pushCharacter(const char character_)
 	}
 	text.setString(text_string);
 	align();
+	animateInput();
 }
 
 void TextInput::popCharacter()
 {
+	stopAnimation();
 	std::string text_string = getText();
-	if (!text_string.empty())
-	{
-		text_string.pop_back();
-	}
+	text_string.pop_back();
 	text.setString(text_string);
 	align();
+	animateInput();
 }
 
 void TextInput::animateInput()
@@ -68,4 +69,10 @@ void TextInput::animateInput()
 void TextInput::stopAnimation()
 {
 	clock = nullptr;
+	std::string text_string = getText();
+	if (text_string.back() == '|')
+	{
+		text_string.pop_back();
+		text.setString(text_string);
+	}
 }
