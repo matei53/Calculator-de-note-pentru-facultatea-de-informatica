@@ -13,7 +13,6 @@ public:
 	std::shared_ptr<Obiect> clone() const override;
 
 	void update() override;
-	std::string getText() const;
 	void pushCharacter(const char character);
 	void popCharacter();
 

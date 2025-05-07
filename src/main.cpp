@@ -14,12 +14,12 @@ int main()
         getline(f, line); int an = std::stoi(line.substr(line.find_last_of(" ")));
         getline(f, line); bool optional = std::stoi(line.substr(line.find_last_of(" ")));
         getline(f, line); bool facultativ = std::stoi(line.substr(line.find_last_of(" ")));
-        std::vector<Notare> notari;
+        std::vector<std::shared_ptr<Notare>> notari;
         getline(f, line);
         for (int i = 1; i <= 3; i++)
         {
             float nota_finala = std::stof(line.substr(line.find_last_of(" ")));
-            std::vector<Evaluare> evaluari;
+            std::vector<std::shared_ptr<Evaluare>> evaluari;
             while (getline(f, line) && line.find("nota_finala") == std::string::npos && line != "-")
             {
                 std::string tip = line;
@@ -27,9 +27,9 @@ int main()
                 getline(f, line); float punctaj_maxim = std::stof(line.substr(line.find_last_of(" ")));
                 getline(f, line); int prag = std::stoi(line.substr(line.find_last_of(" ")));
                 getline(f, line); float nota = std::stof(line.substr(line.find_last_of(" ")));
-                evaluari.push_back(Evaluare(tip, parte_din_final, punctaj_maxim, prag, nota));
+                evaluari.push_back(std::make_shared<Evaluare>(Evaluare(tip, parte_din_final, punctaj_maxim, prag, nota)));
             }
-            notari.push_back(Notare(evaluari, nota_finala));
+            notari.push_back(std::make_shared<Notare>(Notare(evaluari, nota_finala)));
         }
         materii.push_back(Materie(materie, credit, notari, an, optional, facultativ));
     }
@@ -349,13 +349,15 @@ int main()
                                 }
                                 float y1 = y;
                                 NoteMaterie M;
-                                M.titlu_materie = std::make_shared<TitleText>(TitleText({ x, y1 }, { 275, 35 }, 15, m.getNume(), font, sf::Color::Green));
+                                M.titlu_materie = std::make_shared<TitleText>(TitleText({ x, y1 }, { 235, 35 }, 15, m.getNume(), font, sf::Color::Green));
                                 M.titlu_materie->align();
                                 app.addObject(M.titlu_materie);
-                                for (Evaluare e : m.getNotare(serie).getEvals())
+                                M.nota_finala = std::make_shared<TitleText>(TitleText({ x + 235, y1 }, { 40, 35 }, 15, "", font, sf::Color::Yellow));
+                                app.addObject(M.nota_finala);
+                                for (std::shared_ptr<Evaluare> e : m.getNotare(serie)->getEvals())
                                 {
                                     y1 += 35;
-                                    auto ev = std::make_shared<TitleText>(TitleText({ x, y1 }, { 155, 35 }, 15, e.getTip(), font, sf::Color::Green));
+                                    auto ev = std::make_shared<TitleText>(TitleText({ x, y1 }, { 155, 35 }, 15, e->getTip(), font, sf::Color::Green));
                                     auto inp = std::make_shared<TextInput>(TextInput({ x + 160, y1 }, { 75, 35 }, 15, "> ", font, sf::Color::Green, 7));
                                     auto save = std::make_shared<Buton>(Buton({ x + 240, y1 }, { 35, 35 }, 15, "OK", font, sf::Color::Green, sf::Color::Red));
                                     ev->align(); inp->align(); save->align();
@@ -369,9 +371,9 @@ int main()
                                     app.addObject(M.salvari.back());
                                 }
                                 notare_materii.push_back(M);
+                                x += 280;
                             }
                         }
-                        x += 280;
                     }
                 }
             }
@@ -399,7 +401,28 @@ int main()
                                 std::shared_ptr<Buton> sav = std::dynamic_pointer_cast<Buton>(app.getClick());
                                 sav->animateClick();
                                 app.setClick(nullptr);
+
+                                float grade = std::stof(m.inputuri.at(i)->getText().substr(2)); //try
                                 
+                                bool complet = 1;
+                                for (int j = 0; j < materii.size(); j++)
+                                {
+                                    if (m.titlu_materie->getText() == materii[j].getNume())
+                                    {
+                                        materii[j].getNotare(serie)->getEvals()[i]->setNota(grade);
+
+                                        for (std::shared_ptr<Evaluare> ev : materii[j].getNotare(serie)->getEvals())
+                                            if (ev->getNota() == -1)
+                                                complet = 0;
+                                        if (complet)
+                                        {
+                                            materii[j].getNotare(serie)->calculNotaFinala();
+                                            m.nota_finala->setText(std::to_string(materii[j].getNotare(serie)->getNotaFinala()));
+                                            m.nota_finala->align();
+                                        }
+                                        break;
+                                    }
+                                }
                                 break;
                             }
                         }

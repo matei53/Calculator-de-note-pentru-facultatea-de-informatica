@@ -30,6 +30,9 @@ public:
 	std::pair<sf::Vector2f, sf::Vector2f> getBounds() const;
 	bool isClickable() const;
 	void setClickable(const bool);
+
+	std::string getText() const;
+	void setText(const std::string);
 };
 
 #endif

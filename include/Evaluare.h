@@ -11,7 +11,7 @@ class Evaluare
     float parte_din_final;
     float punctaj_maxim;
     int prag;
-    float nota = 0;
+    float nota;
 
 public:
     Evaluare(const std::string, const float, const float, const int, const float);

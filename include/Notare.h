@@ -9,14 +9,14 @@
 
 class Notare
 {
-    std::vector<Evaluare> evaluari;
-    int nota_finala = 0;
+    std::vector<std::shared_ptr<Evaluare>> evaluari;
+    int nota_finala;
 
 public:
-    Notare(std::vector<Evaluare>, const float);
+    Notare(std::vector<std::shared_ptr<Evaluare>>, const float);
 
-    std::vector<Evaluare> getEvals() const;
-    float getNotaFinala() const;
+    std::vector<std::shared_ptr<Evaluare>> getEvals() const;
+    int getNotaFinala() const;
     void calculNotaFinala();
 };
 

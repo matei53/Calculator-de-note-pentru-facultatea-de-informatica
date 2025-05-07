@@ -42,3 +42,13 @@ void Obiect::setClickable(const bool c)
 {
 	clickable = c;
 }
+
+std::string Obiect::getText() const
+{
+	return text.getString().toAnsiString();
+}
+
+void Obiect::setText(const std::string t)
+{
+	text.setString(t);
+}

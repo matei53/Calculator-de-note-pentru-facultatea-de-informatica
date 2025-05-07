@@ -1,29 +1,30 @@
 #include "Notare.h"
 
-Notare::Notare(std::vector<Evaluare> evals, const float finala)
+Notare::Notare(std::vector<std::shared_ptr<Evaluare>> evals, const float finala)
 {
-	for (Evaluare e : evals)
+	for (std::shared_ptr<Evaluare> e : evals)
 	{
 		evaluari.push_back(e);
 	}
 	nota_finala = finala;
 }
 
-std::vector<Evaluare> Notare::getEvals() const
+std::vector<std::shared_ptr<Evaluare>> Notare::getEvals() const
 {
 	return evaluari;
 }
 
-float Notare::getNotaFinala() const
+int Notare::getNotaFinala() const
 {
 	return nota_finala;
 }
 
 void Notare::calculNotaFinala()
 {
-	nota_finala = 0;
-	for (Evaluare e : evaluari)
+	float nota_finala_ = 0;
+	for (std::shared_ptr<Evaluare> e : evaluari)
 	{
-		nota_finala += (e.getParteFinal() / 10) * (e.getNota() / e.getMaxim());
+		nota_finala_ += e->getParteFinal() * (e->getNota() / e->getMaxim());
 	}
+	nota_finala = round(nota_finala_);
 }

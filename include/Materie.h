@@ -11,13 +11,13 @@ class Materie
 {
     std::string nume;
     int credit;
-    std::vector<Notare> Notari;
+    std::vector<std::shared_ptr<Notare>> Notari;
     int an;
     bool optional;
     bool facultativ;
     
 public:
-    Materie(const std::string, const int, std::vector<Notare>, const int, const bool, const bool);
+    Materie(const std::string, const int, std::vector<std::shared_ptr<Notare>>, const int, const bool, const bool);
 
     bool operator==(const Materie&);
 
@@ -26,7 +26,7 @@ public:
     int getAn() const;
     bool isOptional() const;
     bool isFacultativ() const;
-    Notare getNotare(const int) const;
+    std::shared_ptr<Notare> getNotare(const int) const;
 };
 
 #endif

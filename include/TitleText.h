@@ -16,7 +16,6 @@ public:
 	std::shared_ptr<Obiect> clone() const override;
 
 	void update() override;
-	//static void setFont(sf::Font);
 	void align() override;
 	void animateColors();
 };

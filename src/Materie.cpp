@@ -1,6 +1,6 @@
 #include "Materie.h"
 
-Materie::Materie(const std::string nume_, const int credit_, std::vector<Notare> notari_,
+Materie::Materie(const std::string nume_, const int credit_, std::vector<std::shared_ptr<Notare>> notari_,
 	const int an_, const bool optional_, const bool facultativ_)
 {
 	nume = nume_;
@@ -41,8 +41,8 @@ bool Materie::isFacultativ() const
 	return facultativ;
 }
 
-Notare Materie::getNotare(const int s) const
+std::shared_ptr<Notare> Materie::getNotare(const int s) const
 {
-	const int a = s - 3;
+	int a = s - 3;
 	return Notari.at(a);
 }

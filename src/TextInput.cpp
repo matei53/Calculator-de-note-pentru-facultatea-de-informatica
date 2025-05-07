@@ -30,11 +30,6 @@ void TextInput::update()
 	}
 };
 
-std::string TextInput::getText() const
-{
-	return text.getString().toAnsiString();
-}
-
 void TextInput::pushCharacter(const char character_)
 {
 	stopAnimation();
