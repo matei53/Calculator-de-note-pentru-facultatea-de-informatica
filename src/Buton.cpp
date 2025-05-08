@@ -13,7 +13,7 @@ void Buton::update()
 {
 	if (!clock) return;
 
-	if (clock->getElapsedTime() < sf::milliseconds(100))
+	if (clock->getElapsedTime() < sf::seconds(5))
 	{
 		forma.setFillColor(culoare_apasat);
 	}
