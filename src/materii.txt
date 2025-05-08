@@ -1,6 +1,6 @@
 Structuri algebrice in informatica
 credit: 4
-an: 1
+an: 3
 optional: 0
 facultativ: 0
 nota_finala_seria3: -1

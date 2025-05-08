@@ -26,30 +26,30 @@ int main()
                 line_number++; std::string materie = line;
 
                 line_number++; getline(f, line);
-                if (line.find("credit: ") == std::string::npos && std::count(line.begin(), line.end(), ' ') == 1)
+                if (line.find("credit: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                     throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                 try { credit = std::stoi(line.substr(line.find_last_of(" "))); }
-                catch (std::invalid_argument eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
+                catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
                 if (credit < 2 || credit > 6) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                 
                 line_number++; getline(f, line);
-                if (line.find("an: ") == std::string::npos && std::count(line.begin(), line.end(), ' ') == 1)
+                if (line.find("an: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                     throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                 try { an = std::stoi(line.substr(line.find_last_of(" "))); }
-                catch (std::invalid_argument eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
+                catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
                 if (an < 1 || an > 3) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                 line_number++; getline(f, line);
-                if (line.find("optional: ") == std::string::npos && std::count(line.begin(), line.end(), ' ') == 1)
+                if (line.find("optional: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                     throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                 try { optional = std::stoi(line.substr(line.find_last_of(" "))); }
-                catch (std::invalid_argument eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
+                catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
 
                 line_number++; getline(f, line);
-                if (line.find("facultativ: ") == std::string::npos && std::count(line.begin(), line.end(), ' ') == 1)
+                if (line.find("facultativ: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                     throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                 try { facultativ = std::stoi(line.substr(line.find_last_of(" "))); }
-                catch (std::invalid_argument eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
+                catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
 
                 std::vector<std::shared_ptr<Notare>> notari;
                 
@@ -57,10 +57,10 @@ int main()
                 for (int i = 1; i <= 3; i++)
                 {
                     float nota_finala;
-                    if (line.find("nota_finala_seria3: ") == std::string::npos && line.find("nota_finala_seria4: ") == std::string::npos && line.find("nota_finala_seria5: ") == std::string::npos && std::count(line.begin(), line.end(), ' ') == 1)
+                    if (line.find("nota_finala_seria3: ") == std::string::npos && line.find("nota_finala_seria4: ") == std::string::npos && line.find("nota_finala_seria5: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                         throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                     try { nota_finala = std::stof(line.substr(line.find_last_of(" "))); }
-                    catch (std::invalid_argument eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
+                    catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
                     if (nota_finala < -1 || (nota_finala > -1 && nota_finala < 0) || nota_finala > 10) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                     std::vector<std::shared_ptr<Evaluare>> evaluari;
@@ -71,31 +71,31 @@ int main()
                         std::string tip = line;
 
                         line_number++; getline(f, line);
-                        if (line.find("parte: ") == std::string::npos && std::count(line.begin(), line.end(), ' ') == 1)
+                        if (line.find("parte: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                             throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                         try { parte_din_final = std::stof(line.substr(line.find_last_of(" "))); }
-                        catch (std::invalid_argument eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
+                        catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
                         if (parte_din_final < 0 || parte_din_final > 10) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                         line_number++; getline(f, line);
-                        if (line.find("max: ") == std::string::npos && std::count(line.begin(), line.end(), ' ') == 1)
+                        if (line.find("max: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                             throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                         try { punctaj_maxim = std::stof(line.substr(line.find_last_of(" "))); }
-                        catch (std::invalid_argument eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
+                        catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
                         if (punctaj_maxim < 0 || punctaj_maxim > 10) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                         line_number++; getline(f, line);
-                        if (line.find("prag: ") == std::string::npos && std::count(line.begin(), line.end(), ' ') == 1)
+                        if (line.find("prag: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                             throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                         try { prag = std::stoi(line.substr(line.find_last_of(" "))); }
-                        catch (std::invalid_argument eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
+                        catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
                         if (prag < 0 || prag > 10) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                         line_number++; getline(f, line);
-                        if (line.find("nota: ") == std::string::npos && std::count(line.begin(), line.end(), ' ') == 1)
+                        if (line.find("nota: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                             throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                         try { nota = std::stof(line.substr(line.find_last_of(" "))); }
-                        catch (std::invalid_argument eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
+                        catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
                         if (nota < -1 || (nota > -1 && nota < 0) || nota > 10) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                         evaluari.push_back(std::make_shared<Evaluare>(Evaluare(tip, parte_din_final, punctaj_maxim, prag, nota)));
@@ -501,12 +501,12 @@ int main()
                 }
             }
         }
-        catch (InvalidFileContentError eroare)
+        catch (InvalidFileContentError& eroare)
         {
             std::cout << "Linia " << eroare.getLine() << "\n" << eroare.what();
         }
     }
-    catch (InvalidFilePathError eroare)
+    catch (InvalidFilePathError& eroare)
     {
         std::cout << eroare.what();
     }
