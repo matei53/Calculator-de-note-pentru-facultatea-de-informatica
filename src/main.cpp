@@ -475,7 +475,7 @@ int main()
                                         try
                                         {
                                             std::string grade_string = m.inputuri.at(i)->getText().substr(2);
-                                            if (grade_string.back() == '|') grade_string.pop_back();
+                                            if (grade_string != "" && grade_string.back() == '|') grade_string.pop_back();
                                             if (std::count(grade_string.begin(), grade_string.end(), '.') > 1 || grade_string == "." || grade_string == "")
                                                 throw InvalidInputError(sf::Color::Red);
 
