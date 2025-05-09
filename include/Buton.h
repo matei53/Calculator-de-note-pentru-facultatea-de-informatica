@@ -15,6 +15,7 @@ public:
 	void update() override;
 	std::string getText() const;
 	void animateClick();
+	void changeAnimationColor(const sf::Color);
 };
 
 #endif

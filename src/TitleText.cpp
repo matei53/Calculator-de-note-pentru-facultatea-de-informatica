@@ -42,8 +42,8 @@ void TitleText::update()
 
 void TitleText::align()
 {
-	text.setOrigin(text.getGlobalBounds().size / 2.0f + text.getLocalBounds().position);
-	text.setPosition(sf::Vector2f(pozitie.x + marime.x / 2.0f, pozitie.y + marime.y / 2.0f));
+	text.setOrigin(sf::Vector2f (0, text.getLocalBounds().size.y / 2.0f) + text.getLocalBounds().position);
+	text.setPosition(sf::Vector2f(pozitie.x + marime.x / 20.0f, pozitie.y + marime.y / 2.0f));
 }
 
 void TitleText::animateColors()

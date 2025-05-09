@@ -19,7 +19,7 @@ protected:
 
 public:
 	Obiect(const sf::Vector2f&, const sf::Vector2f&, const unsigned int, const std::string&, const sf::Font&, const sf::Color&);
-	~Obiect() = default;
+	virtual ~Obiect() = default;
 
 	virtual std::shared_ptr<Obiect> clone() const = 0; //constructor "virtual" de copiere
 

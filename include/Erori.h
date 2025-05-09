@@ -17,15 +17,10 @@ public:
 
 class InvalidInputError : public std::exception
 {
-	const char* mesaj;
 	sf::Color culoare;
 
 public:
-	InvalidInputError(const char* msg, sf::Color clr) : mesaj{ msg }, culoare{ clr } {}
-	const char* what() const
-	{
-		return mesaj;
-	}
+	InvalidInputError(sf::Color clr) : culoare{ clr } {}
 	sf::Color getColor() const
 	{
 		return culoare;

@@ -33,3 +33,8 @@ void Buton::animateClick()
 	if (!clock) clock = std::make_unique<sf::Clock>();
 	clock->restart();
 }
+
+void Buton::changeAnimationColor(const sf::Color clr)
+{
+	culoare_apasat = clr;
+}

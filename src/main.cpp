@@ -61,7 +61,7 @@ int main()
                         throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                     try { nota_finala = std::stof(line.substr(line.find_last_of(" "))); }
                     catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
-                    if (nota_finala < -1 || (nota_finala > -1 && nota_finala < 0) || nota_finala > 10) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
+                    if (nota_finala != -1) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                     std::vector<std::shared_ptr<Evaluare>> evaluari;
                     while (getline(f, line) && line.find("nota_finala") == std::string::npos && line != "-")
@@ -96,7 +96,7 @@ int main()
                             throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                         try { nota = std::stof(line.substr(line.find_last_of(" "))); }
                         catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
-                        if (nota < -1 || (nota > -1 && nota < 0) || nota > 10) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
+                        if (nota != -1) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                         evaluari.push_back(std::make_shared<Evaluare>(Evaluare(tip, parte_din_final, punctaj_maxim, prag, nota)));
                     }
@@ -148,7 +148,7 @@ int main()
             struct NoteMaterie
             {
                 std::shared_ptr<TitleText> titlu_materie;
-                std::shared_ptr<TitleText> nota_finala;
+                std::shared_ptr<Buton> nota_finala;
                 std::vector<std::shared_ptr<TitleText>> metode_evaluare;
                 std::vector<std::shared_ptr<TextInput>> inputuri;
                 std::vector<std::shared_ptr<Buton>> salvari;
@@ -418,15 +418,15 @@ int main()
                                         }
                                         float y1 = y;
                                         NoteMaterie M;
-                                        M.titlu_materie = std::make_shared<TitleText>(TitleText({ x, y1 }, { 235, 35 }, 15, m.getNume(), font, sf::Color::Green));
+                                        M.titlu_materie = std::make_shared<TitleText>(TitleText({ x, y1 }, { 235, 35 }, 12, m.getNume(), font, sf::Color::Green));
                                         M.titlu_materie->align();
                                         app.addObject(M.titlu_materie);
-                                        M.nota_finala = std::make_shared<TitleText>(TitleText({ x + 235, y1 }, { 40, 35 }, 15, "", font, sf::Color::Magenta));
+                                        M.nota_finala = std::make_shared<Buton>(Buton({ x + 235, y1 }, { 40, 35 }, 15, "", font, sf::Color::Magenta, sf::Color::Magenta));
                                         app.addObject(M.nota_finala);
                                         for (std::shared_ptr<Evaluare> e : m.getNotare(serie)->getEvals())
                                         {
                                             y1 += 35;
-                                            auto ev = std::make_shared<TitleText>(TitleText({ x, y1 }, { 155, 35 }, 15, e->getTip(), font, sf::Color::Green));
+                                            auto ev = std::make_shared<TitleText>(TitleText({ x, y1 }, { 155, 35 }, 10, std::to_string(e->getParteFinal()).substr(0, 4) + " - " + e->getTip() + " (" + std::to_string(e->getMaxim()).substr(0, 4) + ")", font, sf::Color::Green));
                                             auto inp = std::make_shared<TextInput>(TextInput({ x + 160, y1 }, { 75, 35 }, 15, "> ", font, sf::Color::Green, 7));
                                             auto save = std::make_shared<Buton>(Buton({ x + 240, y1 }, { 35, 35 }, 15, "OK", font, sf::Color::Yellow, sf::Color::Green));
                                             ev->align(); inp->align(); save->align();
@@ -468,30 +468,106 @@ int main()
                                     if (m.salvari.at(i) == app.getClick())
                                     {
                                         std::shared_ptr<Buton> sav = std::dynamic_pointer_cast<Buton>(app.getClick());
-                                        sav->animateClick();
+                                        sav->changeAnimationColor(sf::Color::Green);
+
+                                        try
+                                        {
+                                            std::string grade_string = m.inputuri.at(i)->getText().substr(2);
+                                            if (grade_string.back() == '|') grade_string.pop_back();
+                                            if (std::count(grade_string.begin(), grade_string.end(), '.') > 1 || grade_string == "." || grade_string == "")
+                                                throw InvalidInputError(sf::Color::Red);
+
+                                            float grade = std::stof(grade_string);
+
+                                            bool complet = 1;
+                                            for (int j = 0; j < materii.size(); j++)
+                                            {
+                                                if (m.titlu_materie->getText() == materii[j].getNume())
+                                                {
+                                                    if (grade > materii[j].getNotare(serie)->getEvals()[i]->getMaxim())
+                                                        throw InvalidInputError(sf::Color::Red);
+
+                                                    materii[j].getNotare(serie)->getEvals()[i]->setNota(grade);
+                                                    if (grade < materii[j].getNotare(serie)->getEvals()[i]->getPrag())
+                                                        m.titlu_materie->changeColor(sf::Color::Red);
+                                                    else
+                                                    {
+                                                        bool fail = 0;
+                                                        for (int k = 0; k < m.salvari.size() && fail == 0; k++)
+                                                            if (materii[j].getNotare(serie)->getEvals()[k]->getNota() < materii[j].getNotare(serie)->getEvals()[k]->getPrag())
+                                                                fail = 1;
+                                                        if (fail == 0)
+                                                            m.titlu_materie->changeColor(sf::Color::Green);
+                                                    }
+
+                                                    for (std::shared_ptr<Evaluare> ev : materii[j].getNotare(serie)->getEvals())
+                                                        if (ev->getNota() == -1)
+                                                            complet = 0;
+                                                    if (complet)
+                                                    {
+                                                        materii[j].getNotare(serie)->calculNotaFinala();
+                                                        if (materii[j].getNotare(serie)->getNotaFinala() < 5)
+                                                            m.titlu_materie->changeColor(sf::Color::Red);
+                                                        m.nota_finala->setText(std::to_string(materii[j].getNotare(serie)->getNotaFinala()));
+                                                        m.nota_finala->align();
+
+                                                        bool ready = 1;
+                                                        for (NoteMaterie final : notare_materii)
+                                                        {
+                                                            if (final.nota_finala->getText() == "")
+                                                            {
+                                                                ready = 0;
+                                                                break;
+                                                            }
+                                                        }
+                                                        if (ready == 1)
+                                                        {
+                                                            float nota_bursa = 0, nota_buget = 0;
+                                                            int total_credite = 0;
+                                                            for (NoteMaterie final : notare_materii)
+                                                            {
+                                                                int credite = 0;
+                                                                for (Materie mt : materii)
+                                                                {
+                                                                    if (final.titlu_materie->getText() == mt.getNume())
+                                                                    {
+                                                                        credite = mt.getCredit();
+                                                                        break;
+                                                                    }
+                                                                }
+                                                                nota_bursa += std::stof(final.nota_finala->getText());
+                                                                nota_buget += std::stof(final.nota_finala->getText()) * credite;
+                                                                total_credite += credite;
+                                                            }
+                                                            nota_bursa = nota_bursa / notare_materii.size();
+                                                            nota_buget = nota_buget / total_credite;
+                                                            if (nota_bursa == 10)
+                                                                medie_finala_bursa->setText("10.00");
+                                                            else
+                                                                medie_finala_bursa->setText(std::to_string(nota_bursa).substr(0,4));
+
+                                                            if (nota_buget == 10)
+                                                                medie_finala_buget->setText("10.00");
+                                                            else
+                                                                medie_finala_buget->setText(std::to_string(nota_buget).substr(0,4));
+
+                                                            medie_finala_bursa->align();
+                                                            medie_finala_buget->align();
+                                                        }
+                                                    }
+                                                    break;
+                                                }
+                                            }
+                                            sav->animateClick();
+                                        }
+                                        catch (InvalidInputError& eroare)
+                                        {
+                                            sav->changeAnimationColor(eroare.getColor());
+                                            sav->animateClick();
+                                        }
+                                        
                                         app.setClick(nullptr);
 
-                                        float grade = std::stof(m.inputuri.at(i)->getText().substr(2)); //try
-
-                                        bool complet = 1;
-                                        for (int j = 0; j < materii.size(); j++)
-                                        {
-                                            if (m.titlu_materie->getText() == materii[j].getNume())
-                                            {
-                                                materii[j].getNotare(serie)->getEvals()[i]->setNota(grade);
-
-                                                for (std::shared_ptr<Evaluare> ev : materii[j].getNotare(serie)->getEvals())
-                                                    if (ev->getNota() == -1)
-                                                        complet = 0;
-                                                if (complet)
-                                                {
-                                                    materii[j].getNotare(serie)->calculNotaFinala();
-                                                    m.nota_finala->setText(std::to_string(materii[j].getNotare(serie)->getNotaFinala()));
-                                                    m.nota_finala->align();
-                                                }
-                                                break;
-                                            }
-                                        }
                                         break;
                                     }
                                 }

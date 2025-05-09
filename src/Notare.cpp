@@ -27,4 +27,5 @@ void Notare::calculNotaFinala()
 		nota_finala_ += e->getParteFinal() * (e->getNota() / e->getMaxim());
 	}
 	nota_finala = round(nota_finala_);
+	if (nota_finala > 10) nota_finala = 10;
 }

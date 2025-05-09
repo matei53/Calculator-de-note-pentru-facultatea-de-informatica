@@ -18,8 +18,7 @@ void Obiect::render(sf::RenderWindow& window_) const
 
 void Obiect::align()
 {
-	//centrare text
-	text.setOrigin(text.getGlobalBounds().size / 2.0f + text.getLocalBounds().position);
+	text.setOrigin(text.getLocalBounds().size / 2.0f + text.getLocalBounds().position);
 	text.setPosition(sf::Vector2f(pozitie.x + marime.x / 2.0f, pozitie.y + marime.y / 2.0f));
 }
 

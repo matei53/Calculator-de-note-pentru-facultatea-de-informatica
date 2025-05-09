@@ -1,13 +1,13 @@
 Structuri algebrice in informatica
 credit: 4
-an: 3
+an: 1
 optional: 0
 facultativ: 0
 nota_finala_seria3: -1
 Examen
 parte: 10
 max: 10
-prag: 5
+prag: 0
 nota: -1
 Test Seminar 1
 parte: 1
@@ -19,7 +19,7 @@ parte: 1
 max: 10
 prag: 0
 nota: -1
-nota_finala_seria4: 0
+nota_finala_seria4: -1
 Examen
 parte: 10
 max: 10
@@ -35,7 +35,7 @@ parte: 1
 max: 10
 prag: 0
 nota: -1
-nota_finala_seria5: 0
+nota_finala_seria5: -1
 Examen
 parte: 10
 max: 10
@@ -63,7 +63,7 @@ parte: 1
 max: 1
 prag: 0
 nota: -1
-nota_finala_seria4: 0
+nota_finala_seria4: -1
 Examen
 parte: 10
 max: 10
@@ -74,7 +74,7 @@ parte: 1
 max: 1
 prag: 0
 nota: -1
-nota_finala_seria5: 0
+nota_finala_seria5: -1
 Examen
 parte: 8
 max: 10
