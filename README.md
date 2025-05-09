@@ -2,7 +2,8 @@
 
 ## Descriere generală
 Această aplicație ajută la calcularea mediei finale pentru domeniul informatică, anul universitar 2024-2025.<br><br>
-Mai întâi se alege seria, apoi se selectează materiile opționale și cele facultative, iar la final se inserează toate notele primite pentru fiecare materie (e.g. nota de la examen, nota de la colocviu, nota pe activitatea la curs/seminar/laborator).<br><br>
+Mai întâi se alege seria, apoi se selectează materiile opționale și cele facultative. În cazul alegerii facultativelor, se pot alege orice număr de opțiuni. În cazul alegerii opționalelor, trebuie aleasă o materie pentru anul 2, sau 6 materii (3 din primele 23 afișate și 3 din celelalte 18) pentru anul 3.<br><br>
+La final se inserează toate notele primite pentru fiecare materie (e.g. nota de la examen, nota de la colocviu, nota pe activitatea la curs/seminar/laborator).<br><br>
 Dacă nota introdusă sau nota finală a unei materii este sub pragul de promovare, căsuța cu numele materiei va deveni roșie, indicând picarea materiei.
 
 ## Clase
