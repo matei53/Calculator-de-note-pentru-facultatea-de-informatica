@@ -7,10 +7,10 @@ TitleText::TitleText(const sf::Vector2f& poz, const sf::Vector2f& mar, const uns
 TitleText::TitleText(const sf::Vector2f& poz, const sf::Vector2f& mar, const unsigned int mar_font, const std::string& text_, const sf::Font& font,
 	const sf::Color& culoare_) : Obiect{ poz, mar, mar_font, text_, font, culoare_ } { }
 
-std::shared_ptr<Obiect> TitleText::clone() const
-{
-	return std::make_shared<TitleText>(*this);
-}
+//std::shared_ptr<Obiect> TitleText::clone() const
+//{
+//	return std::make_shared<TitleText>(*this);
+//}
 
 void TitleText::update()
 {

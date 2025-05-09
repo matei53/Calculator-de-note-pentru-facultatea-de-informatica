@@ -4,10 +4,10 @@ TextInput::TextInput(const sf::Vector2f& poz, const sf::Vector2f& mar, const uns
 	const sf::Color& culoare_, const int limita) : Obiect{ poz, mar, mar_font, text_, font, culoare_ },
 	limita_caractere{ limita } { }
 
-std::shared_ptr<Obiect> TextInput::clone() const
-{
-	return std::make_shared<TextInput>(*this);
-}
+//std::shared_ptr<Obiect> TextInput::clone() const
+//{
+//	return std::make_shared<TextInput>(*this);
+//}
 
 void TextInput::update()
 {

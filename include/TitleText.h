@@ -13,7 +13,7 @@ public:
 		const sf::Color&, const sf::Color&);
 	TitleText(const sf::Vector2f&, const sf::Vector2f&, const unsigned int, const std::string&, const sf::Font&, const sf::Color&);
 
-	std::shared_ptr<Obiect> clone() const override;
+	//std::shared_ptr<Obiect> clone() const override;
 
 	void update() override;
 	void align() override;

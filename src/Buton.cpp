@@ -4,10 +4,10 @@ Buton::Buton(const sf::Vector2f& poz, const sf::Vector2f& mar, const unsigned in
 	const sf::Color& culoare_, const sf::Color& culoare_apasat_) : Obiect{ poz, mar, mar_font, text_, font, culoare_},
 	culoare_apasat{ culoare_apasat_ } { }
 
-std::shared_ptr<Obiect> Buton::clone() const
-{
-	return std::make_shared<Buton>(*this);
-}
+//std::shared_ptr<Obiect> Buton::clone() const
+//{
+//	return std::make_shared<Buton>(*this);
+//}
 
 void Buton::update()
 {

@@ -8,6 +8,7 @@ Obiect::Obiect(const sf::Vector2f& poz, const sf::Vector2f& mar, const unsigned 
 	forma.setSize(marime);
 	forma.setFillColor(culoare);
 	text.setFillColor(sf::Color::Black);
+	clickable = 0;
 }
 
 void Obiect::render(sf::RenderWindow& window_) const
@@ -50,4 +51,9 @@ std::string Obiect::getText() const
 void Obiect::setText(const std::string t)
 {
 	text.setString(t);
+}
+
+void Obiect::setPosition(const sf::Vector2f& poz)
+{
+	pozitie = poz;
 }

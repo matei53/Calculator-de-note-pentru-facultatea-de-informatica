@@ -21,7 +21,7 @@ public:
 	Obiect(const sf::Vector2f&, const sf::Vector2f&, const unsigned int, const std::string&, const sf::Font&, const sf::Color&);
 	virtual ~Obiect() = default;
 
-	virtual std::shared_ptr<Obiect> clone() const = 0; //constructor "virtual" de copiere
+	//virtual Obiect* clone() const = 0; //constructor "virtual" de copiere
 
 	virtual void update() = 0;
 	void render(sf::RenderWindow&) const;
@@ -33,6 +33,7 @@ public:
 
 	std::string getText() const;
 	void setText(const std::string);
+	void setPosition(const sf::Vector2f&);
 };
 
 #endif
