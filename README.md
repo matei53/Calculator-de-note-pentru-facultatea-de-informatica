@@ -6,7 +6,8 @@ Mai întâi se alege seria, apoi se selectează materiile opționale și cele fa
 La final se inserează toate notele primite pentru fiecare materie (e.g. nota de la examen, nota de la colocviu, nota pe activitatea la curs/seminar/laborator). Această notă trebuie să fie între 0 și numărul aflat între parantezele de după numele evaluării.<br><br>
 Numărul de dinaintea numelui evaluării reprezintă numărul de puncte aduse de evaluarea respectivă în nota finală.<br><br>
 Dacă nota introdusă sau nota finală a unei materii este sub pragul de promovare, căsuța cu numele materiei va deveni roșie, indicând picarea materiei.<br><br>
-Nota finală a unei materii este calculată după ce au fost introduse toate notele pentru materia respectivă, iar mediile generale sunt calculate după ce au fost introduse toate notele pentru toate materiile.
+Nota finală a unei materii este calculată după ce au fost introduse toate notele pentru materia respectivă, iar mediile generale sunt calculate după ce au fost introduse toate notele pentru toate materiile.<br><br>
+Pentru a ieși din aplicație apăsați ESC.
 
 ## Clase
 ### Clasele obiectelor și clasa aplicației
