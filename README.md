@@ -13,7 +13,7 @@ Pentru a ieși din aplicație apăsați ESC.
 ### Clasele obiectelor și clasa aplicației
 Clasa Aplicatie și clasa Obiect - cu clasele derivate Buton, TextInput (căsuță pentru introducerea notelor) și TitleText (căsuță de text simplă) - sunt utilizate pentru a crea interfața.
 ### Clasele materiilor
-Clasele Materie, Notare și Evaluare sunt folosite pentru a reține toate materiile și metoda de evaluare pentru fiecare dintre acestea. Fiecare materie are trei metode de evaluare separate, una pentru fiecare serie.
+Clasele Materie, Notare și Evaluare sunt folosite pentru a reține toate materiile și metodele de notare pentru fiecare dintre acestea. Fiecare materie are trei metode de notare separate, una pentru fiecare serie. Fiecare metodă de notare cuprinde mai multe evaluări, care au un procentaj din nota finală, un prag de promovare și o notă maximă care poate fi obținută.
 ### Clasele erorilor, derivate din std:exception
 Clasa InvalidFilePathError este folosita atunci cand fisierul cu informatiile despre materii sau cel cu fontul textului nu pot fi incarcate. In acest caz, se va afisa un mesaj in terminal legat de problema.<br><br>
 Clasa InvalidFileContentError este folosita atunci cand fisierul cu informatiile despre materii nu contine informatii potrivite pentru program. În acest caz, pe lângă mesaj, se va afisa și linia din fișierul text unde s-a găsit problema.<br><br>
