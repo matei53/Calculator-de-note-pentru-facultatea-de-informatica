@@ -23,7 +23,7 @@ nota_finala_seria4: -1
 Examen
 parte: 10
 max: 10
-prag: 5
+prag: 0
 nota: -1
 Test Seminar
 parte: 1
@@ -39,7 +39,7 @@ nota_finala_seria5: -1
 Examen
 parte: 10
 max: 10
-prag: 5
+prag: 0
 nota: -1
 Seminar
 parte: 2
@@ -56,7 +56,7 @@ nota_finala_seria3: -1
 Examen
 parte: 10
 max: 10
-prag: 5
+prag: 4.5
 nota: -1
 Activitate Seminar
 parte: 1
@@ -67,7 +67,7 @@ nota_finala_seria4: -1
 Examen
 parte: 10
 max: 10
-prag: 5
+prag: 4.5
 nota: -1
 Activitate Seminar
 parte: 1
@@ -78,7 +78,7 @@ nota_finala_seria5: -1
 Examen
 parte: 8
 max: 10
-prag: 5
+prag: 4.5
 nota: -1
 Activitate Seminar
 parte: 2
@@ -93,21 +93,66 @@ optional: 0
 facultativ: 0
 nota_finala_seria3: -1
 Examen
-parte: 10
+parte: 6
+max: 60
+prag: 30
+nota: -1
+Proiect P1
+parte: 1.2
+max: 12
+prag: 6
+nota: -1
+Proiect P2
+parte: 1.8
+max: 18
+prag: 9
+nota: -1
+Activitate lab
+parte: 1
 max: 10
-prag: 5
+prag: 0
 nota: -1
 nota_finala_seria4: -1
 Examen
-parte: 10
+parte: 6
+max: 60
+prag: 30
+nota: -1
+Proiect P1
+parte: 1.2
+max: 12
+prag: 6
+nota: -1
+Proiect P2
+parte: 1.8
+max: 18
+prag: 9
+nota: -1
+Activitate lab
+parte: 1
 max: 10
-prag: 5
+prag: 0
 nota: -1
 nota_finala_seria5: -1
 Examen
-parte: 10
+parte: 6
+max: 60
+prag: 30
+nota: -1
+Proiect P1
+parte: 1.2
+max: 12
+prag: 6
+nota: -1
+Proiect P2
+parte: 1.8
+max: 18
+prag: 9
+nota: -1
+Activitate lab
+parte: 1
 max: 10
-prag: 5
+prag: 0
 nota: -1
 -
 Programarea algoritmilor
@@ -117,21 +162,51 @@ optional: 0
 facultativ: 0
 nota_finala_seria3: -1
 Examen
-parte: 10
+parte: 7
 max: 10
 prag: 5
+nota: -1
+Colocviu
+parte: 3
+max: 10
+prag: 5
+nota: -1
+Activitate sem.
+parte: 1
+max: 10
+prag: 0
 nota: -1
 nota_finala_seria4: -1
 Examen
-parte: 10
+parte: 7
 max: 10
 prag: 5
 nota: -1
-nota_finala_seria5: -1
-Examen
-parte: 10
+Colocviu
+parte: 3
 max: 10
 prag: 5
+nota: -1
+Activitate sem.
+parte: 1
+max: 10
+prag: 0
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 7
+max: 10
+prag: 5
+nota: -1
+Colocviu
+parte: 3
+max: 10
+prag: 5
+nota: -1
+Activitate sem.
+parte: 1
+max: 10
+prag: 0
 nota: -1
 -
 Arhitectura sistemelor e calcul
@@ -141,21 +216,81 @@ optional: 0
 facultativ: 0
 nota_finala_seria3: -1
 Examen
-parte: 10
+parte: 6
 max: 10
 prag: 5
+nota: -1
+Test lab
+parte: 1
+max: 10
+prag: 0
+nota: -1
+Tema lab
+parte: 1
+max: 10
+prag: 5
+nota: -1
+Colocviu
+parte: 2
+max: 10
+prag: 5
+nota: -1
+Proiect
+parte: 2
+max: 10
+prag: 0
 nota: -1
 nota_finala_seria4: -1
 Examen
-parte: 10
+parte: 6
 max: 10
 prag: 5
 nota: -1
-nota_finala_seria5: -1
-Examen
-parte: 10
+Test lab
+parte: 1
+max: 10
+prag: 0
+nota: -1
+Tema lab
+parte: 1
 max: 10
 prag: 5
+nota: -1
+Colocviu
+parte: 2
+max: 10
+prag: 5
+nota: -1
+Proiect
+parte: 2
+max: 10
+prag: 0
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 6
+max: 10
+prag: 5
+nota: -1
+Test lab
+parte: 1
+max: 10
+prag: 0
+nota: -1
+Tema lab
+parte: 1
+max: 10
+prag: 5
+nota: -1
+Colocviu
+parte: 2
+max: 10
+prag: 5
+nota: -1
+Proiect
+parte: 2
+max: 10
+prag: 0
 nota: -1
 -
 Instrumente si tehnici de baza in info
@@ -165,21 +300,51 @@ optional: 0
 facultativ: 0
 nota_finala_seria3: -1
 Examen
-parte: 10
-max: 10
-prag: 5
+parte: 3
+max: 30
+prag: 7.5
+nota: -1
+Activitate lab
+parte: 3
+max: 30
+prag: 10
+nota: -1
+Proiect
+parte: 4
+max: 40
+prag: 10
 nota: -1
 nota_finala_seria4: -1
 Examen
-parte: 10
-max: 10
-prag: 5
+parte: 3
+max: 30
+prag: 7.5
+nota: -1
+Activitate lab
+parte: 3
+max: 30
+prag: 10
+nota: -1
+Proiect
+parte: 4
+max: 40
+prag: 10
 nota: -1
 nota_finala_seria5: -1
 Examen
-parte: 10
-max: 10
-prag: 5
+parte: 3
+max: 30
+prag: 7.5
+nota: -1
+Activitate lab
+parte: 3
+max: 30
+prag: 10
+nota: -1
+Proiect
+parte: 4
+max: 40
+prag: 10
 nota: -1
 -
 Geometrie si algebra liniara
@@ -193,17 +358,52 @@ parte: 10
 max: 10
 prag: 5
 nota: -1
+Sem. algebra
+parte: 0.5
+max: 1
+prag: 0
+nota: -1
+Sem. geometrie
+parte: 0.5
+max: 1
+prag: 0
+nota: -1
 nota_finala_seria4: -1
 Examen
 parte: 10
 max: 10
 prag: 5
 nota: -1
+Sem. algebra
+parte: 0.5
+max: 1
+prag: 0
+nota: -1
+Sem. geometrie
+parte: 0.5
+max: 1
+prag: 0
+nota: -1
 nota_finala_seria5: -1
 Examen
 parte: 10
 max: 10
 prag: 5
+nota: -1
+Activitate
+parte: 0.5
+max: 10
+prag: 0
+nota: -1
+Teme
+parte: 0.5
+max: 10
+prag: 0
+nota: -1
+Teste
+parte: 0.5
+max: 10
+prag: 0
 nota: -1
 -
 Baze de date
@@ -212,22 +412,82 @@ an: 1
 optional: 0
 facultativ: 0
 nota_finala_seria3: -1
-Examen
-parte: 10
-max: 10
+Proiect 1-13
+parte: 5
+max: 5
 prag: 5
 nota: -1
+Proiect 14-17
+parte: 3
+max: 3
+prag: 0
+nota: -1
+Activitate curs
+parte: 1
+max: 1
+prag: 0
+nota: -1
+Activitate lab
+parte: 1
+max: 1
+prag: 0
+nota: -1
 nota_finala_seria4: -1
-Examen
-parte: 10
-max: 10
+Proiect 1-13
+parte: 5
+max: 5
 prag: 5
+nota: -1
+Proiect 14-17
+parte: 3
+max: 3
+prag: 0
+nota: -1
+Test lab
+parte: 1
+max: 1
+prag: 0
+nota: -1
+Activitate lab
+parte: 1
+max: 1
+prag: 0
+nota: -1
+Teme/teste bonus
+parte: 2
+max: 2
+prag: 0
 nota: -1
 nota_finala_seria5: -1
 Examen
-parte: 10
+parte: 4
 max: 10
-prag: 5
+prag: 0
+nota: -1
+Activitate curs
+parte: 1
+max: 10
+prag: 0
+nota: -1
+Test lab
+parte: 5
+max: 10
+prag: 0
+nota: -1
+Tema lab 1
+parte: 0.25
+max: 10
+prag: 0
+nota: -1
+Tema lab 2
+parte: 0.25
+max: 10
+prag: 0
+nota: -1
+Quiz
+parte: 0.25
+max: 10
+prag: 0
 nota: -1
 -
 Structuri de date
@@ -326,7 +586,7 @@ max: 10
 prag: 5
 nota: -1
 -
-Engleza 1
+Limba straina 1
 credit: 2
 an: 1
 optional: 0
@@ -350,7 +610,7 @@ max: 10
 prag: 5
 nota: -1
 -
-Engleza 2
+Limba straina 2
 credit: 2
 an: 1
 optional: 0
@@ -451,6 +711,1494 @@ credit: 2
 an: 1
 optional: 0
 facultativ: 1
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Probabilitati si statistica
+credit: 5
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Algoritmi fundamentali
+credit: 5
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Sisteme de gestiune a bazelor de date
+credit: 5
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Programare functionala
+credit: 4
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Sisteme de operare
+credit: 4
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Inteligenta artificiala
+credit: 5
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Algoritmi avansati
+credit: 5
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Fundamente ale limbajelor de prog.
+credit: 5
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Metode de dezvoltare software
+credit: 5
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Retele de calculatoare
+credit: 4
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Programare avansata pe obiecte in Java
+credit: 4
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Limba straina 3
+credit: 2
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Limba straina 4
+credit: 2
+an: 2
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Aplicatii Web in ASP.NET
+credit: 5
+an: 2
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Aplicatii Web in Django
+credit: 5
+an: 2
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Aplicatii Web in PHP
+credit: 5
+an: 2
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Educatie fizica si metodica
+credit: 2
+an: 2
+optional: 0
+facultativ: 1
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Printare si modelare 3D
+credit: 3
+an: 2
+optional: 0
+facultativ: 1
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Calculabilitate si complexitate
+credit: 6
+an: 3
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Inginerie software
+credit: 6
+an: 3
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Securitatea sistemelor informatice
+credit: 4
+an: 3
+optional: 0
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Calcul numeric in informatica
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Concepte in Vederea Artificiala
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Grafica pe calculator
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Introducere in programarea jocurilor
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Reinforcement Learning
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Java Script server side
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Prelucrarea semnalelor
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Robotic Process Automation (UiPath)
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Tehnici de simulare
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Arheologia masinilor inteligente
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Dezvoltarea jocurilor 3D
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Structuri de date avansate
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Prog. in realitatea virtuala
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Algoritmi genetici
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Programare diferentiabila
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Verificare cu proof assistants
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Tehnologii cloud computing
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Blockchain
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Sisteme distribuite
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Implementarea concurentei in limbaje
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Aplicatii Web grafice si calcul GPU
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Tehnici de demonstrare
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Metode nucleu in invatarea auto
+credit: 6
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Securitate si logica aplicata
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Proiectarea compilatoarelor
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Prelucrarea limbajului natural
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Invatarea retelelor neurale adanci
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Invatare auto in Vedere Artificiala
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Metode in Ingineria Software
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Production engineering
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Aplicatii de simulare
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Protocoale criptografice
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Testarea Sistemelor Software
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Planificare a unei echipe de roboti
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Cercetare si bioinformatica
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Algoritmica avansata a grafurilor
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Tehnici de optimizare
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Procesarea semnalelor audio
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Algoritmi paraleli
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Introducere in LISP
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
+nota_finala_seria3: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria4: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+nota_finala_seria5: -1
+Examen
+parte: 10
+max: 10
+prag: 5
+nota: -1
+-
+Specificare si verificare formala
+credit: 4
+an: 3
+optional: 1
+facultativ: 0
 nota_finala_seria3: -1
 Examen
 parte: 10

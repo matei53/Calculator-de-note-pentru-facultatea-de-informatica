@@ -1,6 +1,6 @@
 #include "Evaluare.h"
 
-Evaluare::Evaluare(const std::string tip_, const float parte, const float maxim, const int prag_, const float nota_)
+Evaluare::Evaluare(const std::string tip_, const float parte, const float maxim, const float prag_, const float nota_)
 {
 	tip = tip_;
 	parte_din_final = parte;
@@ -29,7 +29,7 @@ float Evaluare::getNota() const
 	return nota;
 }
 
-int Evaluare::getPrag() const
+float Evaluare::getPrag() const
 {
 	return prag;
 }

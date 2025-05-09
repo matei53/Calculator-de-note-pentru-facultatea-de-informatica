@@ -66,7 +66,7 @@ int main()
                     std::vector<std::shared_ptr<Evaluare>> evaluari;
                     while (getline(f, line) && line.find("nota_finala") == std::string::npos && line != "-")
                     {
-                        float parte_din_final, punctaj_maxim, nota; int prag;
+                        float parte_din_final, punctaj_maxim, nota, prag;
                         line_number++; 
                         std::string tip = line;
 
@@ -82,14 +82,14 @@ int main()
                             throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                         try { punctaj_maxim = std::stof(line.substr(line.find_last_of(" "))); }
                         catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
-                        if (punctaj_maxim < 0 || punctaj_maxim > 10) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
+                        if (punctaj_maxim < 0) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                         line_number++; getline(f, line);
                         if (line.find("prag: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
                             throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
-                        try { prag = std::stoi(line.substr(line.find_last_of(" "))); }
+                        try { prag = std::stof(line.substr(line.find_last_of(" "))); }
                         catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
-                        if (prag < 0 || prag > 10) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
+                        if (prag < 0) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                         line_number++; getline(f, line);
                         if (line.find("nota: ") == std::string::npos || std::count(line.begin(), line.end(), ' ') != 1)
@@ -262,7 +262,7 @@ int main()
                             {
                                 if (m.getAn() == an && m.isOptional())
                                 {
-                                    butoane_optionale.push_back(std::make_shared<Buton>(Buton({ x_opt, y_opt }, { 400, 40 }, 25, m.getNume(), font, sf::Color::Green, sf::Color::Yellow)));
+                                    butoane_optionale.push_back(std::make_shared<Buton>(Buton({ x_opt, y_opt }, { 400, 40 }, 20, m.getNume(), font, sf::Color::Green, sf::Color::Yellow)));
                                     y_opt += 45;
                                     if (y_opt > 950 || butoane_optionale.size() == 23)
                                     {
@@ -309,15 +309,15 @@ int main()
 
                             int n = 0;
                             while (b != butoane_optionale.at(n)) n++;
-                            if (n <= 23)
+                            if (n < 23)
                             {
                                 int nr = 0;
-                                for (int i = 0; i <= 23; i++)
+                                for (int i = 0; i < 23; i++)
                                     if (!butoane_optionale.at(i)->isClickable())
                                         nr++;
                                 if (nr == 3)
                                 {
-                                    for (int i = 0; i <= 23; i++)
+                                    for (int i = 0; i < 23; i++)
                                     {
                                         butoane_optionale.at(i)->setClickable(0);
                                         app.removeClickableObject(butoane_optionale.at(i));
@@ -327,12 +327,12 @@ int main()
                             else
                             {
                                 int nr = 0;
-                                for (int i = 24; i <= 41; i++)
+                                for (int i = 23; i < 41; i++)
                                     if (!butoane_optionale.at(i)->isClickable())
                                         nr++;
                                 if (nr == 3)
                                 {
-                                    for (int i = 23; i <= 41; i++)
+                                    for (int i = 23; i < 41; i++)
                                     {
                                         butoane_optionale.at(i)->setClickable(0);
                                         app.removeClickableObject(butoane_optionale.at(i));
