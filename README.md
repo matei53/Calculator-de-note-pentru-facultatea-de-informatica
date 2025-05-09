@@ -3,6 +3,8 @@
 ## Descriere generală
 Această aplicație ajută la calcularea mediei finale pentru domeniul informatică, anul universitar 2024-2025.
 Mai întâi se alege seria, apoi se selectează materiile opționale și cele facultative, iar la final se inserează toate notele primite pentru fiecare materie (e.g. nota de la examen, nota de la colocviu, nota pe activitatea la curs/seminar/laborator).
+Dacă nota nu a fost introdusă corect, butonul de salvare va deveni roșu.
+Dacă nota introdusă sau nota finală a unei materii este sub pragul de promovare, căsuța cu numele materiei va deveni roșie, indicând picarea materiei.
 
 ## Clase
 Clasa Aplicatie și clasa Obiect - cu clasele derivate Buton, TextInput (căsuță pentru introducerea notelor) și TitleText (căsuță de text simplă) - sunt utilizate pentru a crea interfața.
