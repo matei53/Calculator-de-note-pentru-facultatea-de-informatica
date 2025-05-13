@@ -157,9 +157,16 @@ int main()
             };
             std::vector<NoteMaterie> notare_materii;
             std::shared_ptr<TitleText> titlu_medie_finala_bursa;
-            std::shared_ptr<TitleText> titlu_medie_finala_buget;
             std::shared_ptr<TitleText> medie_finala_bursa;
+            std::shared_ptr<TitleText> titlu_medie_finala_buget;
             std::shared_ptr<TitleText> medie_finala_buget;
+            std::shared_ptr<TitleText> titlu_credite;
+            std::shared_ptr<TitleText> credite;
+            
+            std::shared_ptr<TitleText> instructiune1;
+            std::shared_ptr<TitleText> instructiune2;
+            std::shared_ptr<TitleText> instructiune3;
+            std::shared_ptr<TitleText> instructiune4;
 
             while (app.isRunning())
             {
@@ -189,7 +196,7 @@ int main()
 
                         if (an == 1)
                         {
-                            titlu_facultative = std::make_shared<TitleText>(TitleText({ 0, 250 }, { 600, 75 }, 40, "Alegeti facultativele", font, sf::Color::Yellow));
+                            titlu_facultative = std::make_shared<TitleText>(TitleText({ 0, 250 }, { 1000, 75 }, 40, "Alegeti facultativele la care doriti sa participati", font, sf::Color::Yellow));
                             app.addObject(titlu_facultative);
                             titlu_facultative->align();
 
@@ -211,7 +218,7 @@ int main()
                         }
                         else if (an == 2)
                         {
-                            titlu_facultative = std::make_shared<TitleText>(TitleText({ 0, 250 }, { 600, 75 }, 40, "Alegeti facultativele", font, sf::Color::Yellow));
+                            titlu_facultative = std::make_shared<TitleText>(TitleText({ 0, 250 }, { 1000, 75 }, 40, "Alegeti facultativele la care doriti sa participati", font, sf::Color::Yellow));
                             app.addObject(titlu_facultative);
                             titlu_facultative->align();
 
@@ -231,7 +238,7 @@ int main()
                                 app.addObject(b);
                             }
 
-                            titlu_optionale = std::make_shared<TitleText>(TitleText({ 0, y }, { 600, 75 }, 40, "Alegeti optionalele", font, sf::Color::Yellow));
+                            titlu_optionale = std::make_shared<TitleText>(TitleText({ 0, y }, { 1000, 75 }, 40, "Alegeti optionalul la care veti participa", font, sf::Color::Yellow));
                             app.addObject(titlu_optionale);
                             titlu_optionale->align();
                             y += 80;
@@ -253,7 +260,7 @@ int main()
                         }
                         else if (an == 3)
                         {
-                            titlu_optionale = std::make_shared<TitleText>(TitleText({ 0, 250 }, { 600, 75 }, 40, "Alegeti optionalele", font, sf::Color::Yellow));
+                            titlu_optionale = std::make_shared<TitleText>(TitleText({ 0, 250 }, { 1700, 75 }, 30, "Alegeti optionalele la care veti participa.\nTrebuie sa alegeti 3 pentru semestrul 1 (primele doua coloane) si 3 pentru semestrul 2 (ultimele doua coloane).", font, sf::Color::Yellow));
                             app.addObject(titlu_optionale);
                             titlu_optionale->align();
 
@@ -390,16 +397,34 @@ int main()
                             for (std::shared_ptr<Buton> b : butoane_optionale) app.removeObject(b);
                             for (std::shared_ptr<Buton> b : butoane_facultative) app.removeObject(b);
 
-                            titlu_medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 5 }, { 155, 35 }, 20, "MEDIE BURSA", font, sf::Color::Magenta));
-                            medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 40 }, { 155, 85 }, 50, "", font, sf::Color::Yellow));
-                            titlu_medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 150 }, { 155, 35 }, 20, "MEDIE BUGET", font, sf::Color::Magenta));
-                            medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 185 }, { 155, 85 }, 50, "", font, sf::Color::Yellow));
+                            titlu_medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 5 }, { 195, 35 }, 20, "MEDIE BURSA", font, sf::Color::Magenta));
+                            medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 40 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
+                            titlu_medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 80 }, { 195, 35 }, 20, "CREDIT", font, sf::Color::Magenta));
+                            medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 115 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
+                            titlu_credite = std::make_shared<TitleText>(TitleText({ 1700, 155 }, { 195, 35 }, 20, "PUNCTE CREDIT", font, sf::Color::Magenta));
+                            credite = std::make_shared<TitleText>(TitleText({ 1700, 190 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
                             titlu_medie_finala_bursa->align();
                             titlu_medie_finala_buget->align();
+                            titlu_credite->align();
                             app.addObject(titlu_medie_finala_bursa);
                             app.addObject(titlu_medie_finala_buget);
+                            app.addObject(titlu_credite);
                             app.addObject(medie_finala_bursa);
                             app.addObject(medie_finala_buget);
+                            app.addObject(credite);
+
+                            instructiune1 = std::make_shared<TitleText>(TitleText({ 1700, 230 }, { 195, 100 }, 14, "In calculul creditelor si\na punctelor de credit nu\nse iau in calcul facultativele.\nPunctele credit se folosesc\nin reclasificarea buget/taxa.", font, sf::Color::Yellow));
+                            instructiune2 = std::make_shared<TitleText>(TitleText({ 1700, 335 }, { 195, 150 }, 14, "Numarul din stanga\nevaluarii reprezinta\nnumarul de puncte din\nnota finala.\nNumarul din dreapta\nreprezinta punctajul\nmaxim ce se poate obtine\nla evaluarea respectiva.", font, sf::Color::Yellow));
+                            instructiune3 = std::make_shared<TitleText>(TitleText({ 1700, 490 }, { 195, 360 }, 14, "Daca pragul de trecere la\no evaluare a unei materii nu\na fost trecut sau daca\nnota finala a unei\nmaterii este sub 5,\natunci acea materie\neste picata.\nIn acest caz, casuta\ncu numele materiei si\ncea cu media pentru\nbursa vor deveni rosii.\nNotele pot fi inlocuite\ndupa restante/mariri.\nDaca cel putin o materie\neste inca picata dupa\nrestante, atunci bursa nu\nse poate obtine pentru\nanul urmator. Creditele la\nmateriile picate nu se iau\nin calcul la stabilirea\ncreditelor finale si a\npunctelor de credit.", font, sf::Color::Yellow));
+                            instructiune4 = std::make_shared<TitleText>(TitleText({ 1700, 855 }, { 195, 120 }, 14, "Criteriile de promovare a\nanului universitar se\ngasesc in capitolul 8 din\nregulamentul privind\nactivitatea profesionala\na studentilor.", font, sf::Color::Yellow));
+                            instructiune1->align();
+                            instructiune2->align();
+                            instructiune3->align();
+                            instructiune4->align();
+                            app.addObject(instructiune1);
+                            app.addObject(instructiune2);
+                            app.addObject(instructiune3);
+                            app.addObject(instructiune4);
 
                             float x = 5, y = 5;
                             for (Materie m : materii)
