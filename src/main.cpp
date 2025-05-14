@@ -399,9 +399,9 @@ int main()
 
                             titlu_medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 5 }, { 195, 35 }, 20, "MEDIE BURSA", font, sf::Color::Magenta));
                             medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 40 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
-                            titlu_medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 80 }, { 195, 35 }, 20, "CREDIT", font, sf::Color::Magenta));
+                            titlu_medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 80 }, { 195, 35 }, 20, "PUNCTE CREDIT", font, sf::Color::Magenta));
                             medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 115 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
-                            titlu_credite = std::make_shared<TitleText>(TitleText({ 1700, 155 }, { 195, 35 }, 20, "PUNCTE CREDIT", font, sf::Color::Magenta));
+                            titlu_credite = std::make_shared<TitleText>(TitleText({ 1700, 155 }, { 195, 35 }, 20, "CREDITE", font, sf::Color::Magenta));
                             total_credite_display = std::make_shared<TitleText>(TitleText({ 1700, 190 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
                             titlu_medie_finala_bursa->align();
                             titlu_medie_finala_buget->align();
@@ -536,7 +536,7 @@ int main()
                                                                     break;
                                                                 }
                                                             if (brs == 1)
-                                                                titlu_medie_finala_bursa->changeColor(sf::Color::Green);
+                                                                titlu_medie_finala_bursa->changeColor(sf::Color::Magenta);
                                                         }
                                                     }
                                                     else if (fail == 1)
@@ -574,54 +574,69 @@ int main()
                                                                     break;
                                                                 }
                                                             if (brs == 1)
-                                                                titlu_medie_finala_bursa->changeColor(sf::Color::Green);
+                                                                titlu_medie_finala_bursa->changeColor(sf::Color::Magenta);
                                                         }
                                                         m.nota_finala->setText(std::to_string(materii[j].getNotare(serie)->getNotaFinala()));
                                                         m.nota_finala->align();
 
-                                                        bool ready = 1;
+                                                        float nota_bursa = 0;
+                                                        int puncte_buget = 0;
+                                                        int total_credite = 0, credite_obtinute = 0;
                                                         for (NoteMaterie final : notare_materii)
                                                         {
-                                                            if (final.nota_finala->getText() == "")
+                                                            if (final.nota_finala->getText() != "")
                                                             {
-                                                                ready = 0;
-                                                                break;
-                                                            }
-                                                        }
-                                                        if (ready == 1)
-                                                        {
-                                                            float nota_bursa = 0, nota_buget = 0;
-                                                            int total_credite = 0;
-                                                            for (NoteMaterie final : notare_materii)
-                                                            {
-                                                                int credite = 0;
+                                                                int credite ; bool trecere = 1, facl = 0;
                                                                 for (Materie mt : materii)
                                                                 {
                                                                     if (final.titlu_materie->getText() == mt.getNume())
                                                                     {
+                                                                        if (mt.isFacultativ()) facl = 1;
                                                                         credite = mt.getCredit();
+                                                                        if (final.titlu_materie->getColor() == sf::Color::Red) trecere = 0;
                                                                         break;
                                                                     }
                                                                 }
                                                                 nota_bursa += std::stof(final.nota_finala->getText());
-                                                                nota_buget += std::stof(final.nota_finala->getText()) * credite;
-                                                                total_credite += credite;
+                                                                if (!facl)
+                                                                {
+                                                                    if (trecere)
+                                                                    {
+                                                                        puncte_buget += std::stof(final.nota_finala->getText()) * credite;
+                                                                        credite_obtinute += credite;
+                                                                    }
+                                                                    total_credite += credite;
+                                                                }
                                                             }
-                                                            nota_bursa = nota_bursa / notare_materii.size();
-                                                            nota_buget = nota_buget / total_credite;
-                                                            if (nota_bursa == 10)
-                                                                medie_finala_bursa->setText("10.00");
                                                             else
-                                                                medie_finala_bursa->setText(std::to_string(nota_bursa).substr(0,4));
+                                                            {
+                                                                int credite; bool  facl = 0;
+                                                                for (Materie mt : materii)
+                                                                {
+                                                                    if (final.titlu_materie->getText() == mt.getNume())
+                                                                    {
+                                                                        if (mt.isFacultativ()) facl = 1;
+                                                                        credite = mt.getCredit();
+                                                                        break;
+                                                                    }
+                                                                }
+                                                                if (!facl)
+                                                                    total_credite += credite;
+                                                            }
 
-                                                            if (nota_buget == 10)
-                                                                medie_finala_buget->setText("10.00");
-                                                            else
-                                                                medie_finala_buget->setText(std::to_string(nota_buget).substr(0,4));
-
-                                                            medie_finala_bursa->align();
-                                                            medie_finala_buget->align();
                                                         }
+                                                        nota_bursa = nota_bursa / notare_materii.size();
+                                                        if (nota_bursa == 10)
+                                                            medie_finala_bursa->setText("10.00");
+                                                        else
+                                                            medie_finala_bursa->setText(std::to_string(nota_bursa).substr(0,4));
+
+                                                        medie_finala_buget->setText(std::to_string(puncte_buget) + "/" + std::to_string(total_credite * 10));
+                                                        total_credite_display->setText(std::to_string(credite_obtinute) + "/" + std::to_string(total_credite));
+
+                                                        medie_finala_bursa->align();
+                                                        medie_finala_buget->align();
+                                                        total_credite_display->align();
                                                     }
                                                     break;
                                                 }
