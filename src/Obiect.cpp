@@ -26,6 +26,12 @@ void Obiect::align()
 void Obiect::changeColor(const sf::Color c)
 {
 	forma.setFillColor(c);
+	culoare = c;
+}
+
+sf::Color Obiect::getColor() const
+{
+	return culoare;
 }
 
 std::pair<sf::Vector2f, sf::Vector2f> Obiect::getBounds() const

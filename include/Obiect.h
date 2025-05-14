@@ -27,6 +27,7 @@ public:
 	void render(sf::RenderWindow&) const;
 	virtual void align();
 	void changeColor(const sf::Color);
+	sf::Color getColor() const;
 	std::pair<sf::Vector2f, sf::Vector2f> getBounds() const;
 	bool isClickable() const;
 	void setClickable(const bool);

@@ -161,7 +161,7 @@ int main()
             std::shared_ptr<TitleText> titlu_medie_finala_buget;
             std::shared_ptr<TitleText> medie_finala_buget;
             std::shared_ptr<TitleText> titlu_credite;
-            std::shared_ptr<TitleText> credite;
+            std::shared_ptr<TitleText> total_credite_display;
             
             std::shared_ptr<TitleText> instructiune1;
             std::shared_ptr<TitleText> instructiune2;
@@ -387,22 +387,22 @@ int main()
                             }
                         if (ok == 1)
                         {
-                            app.removeObject(titlu);
-                            app.removeObject(alegere_serie);
-                            app.removeObject(buton_inainte);
-                            app.removeObject(alegere_serie);
-                            app.removeObject(titlu_facultative);
-                            app.removeObject(titlu_optionale);
-                            for (std::shared_ptr<Buton> b : butoane_serii) app.removeObject(b);
-                            for (std::shared_ptr<Buton> b : butoane_optionale) app.removeObject(b);
-                            for (std::shared_ptr<Buton> b : butoane_facultative) app.removeObject(b);
+                            app.removeObject(titlu); titlu.reset();
+                            app.removeObject(alegere_serie); alegere_serie.reset();
+                            app.removeObject(buton_inainte); buton_inainte.reset();
+                            app.removeObject(alegere_serie); alegere_serie.reset();
+                            app.removeObject(titlu_facultative); titlu_facultative.reset();
+                            app.removeObject(titlu_optionale); titlu_optionale.reset();
+                            for (std::shared_ptr<Buton> b : butoane_serii) { app.removeObject(b); b.reset(); }
+                            for (std::shared_ptr<Buton> b : butoane_optionale) { app.removeObject(b); b.reset(); }
+                            for (std::shared_ptr<Buton> b : butoane_facultative) { app.removeObject(b); b.reset(); }
 
                             titlu_medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 5 }, { 195, 35 }, 20, "MEDIE BURSA", font, sf::Color::Magenta));
                             medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 40 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
                             titlu_medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 80 }, { 195, 35 }, 20, "CREDIT", font, sf::Color::Magenta));
                             medie_finala_buget = std::make_shared<TitleText>(TitleText({ 1700, 115 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
                             titlu_credite = std::make_shared<TitleText>(TitleText({ 1700, 155 }, { 195, 35 }, 20, "PUNCTE CREDIT", font, sf::Color::Magenta));
-                            credite = std::make_shared<TitleText>(TitleText({ 1700, 190 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
+                            total_credite_display = std::make_shared<TitleText>(TitleText({ 1700, 190 }, { 195, 35 }, 20, "", font, sf::Color::Yellow));
                             titlu_medie_finala_bursa->align();
                             titlu_medie_finala_buget->align();
                             titlu_credite->align();
@@ -411,7 +411,7 @@ int main()
                             app.addObject(titlu_credite);
                             app.addObject(medie_finala_bursa);
                             app.addObject(medie_finala_buget);
-                            app.addObject(credite);
+                            app.addObject(total_credite_display);
 
                             instructiune1 = std::make_shared<TitleText>(TitleText({ 1700, 230 }, { 195, 100 }, 14, "In calculul creditelor si\na punctelor de credit nu\nse iau in calcul facultativele.\nPunctele credit se folosesc\nin reclasificarea buget/taxa.", font, sf::Color::Yellow));
                             instructiune2 = std::make_shared<TitleText>(TitleText({ 1700, 335 }, { 195, 150 }, 14, "Numarul din stanga\nevaluarii reprezinta\nnumarul de puncte din\nnota finala.\nNumarul din dreapta\nreprezinta punctajul\nmaxim ce se poate obtine\nla evaluarea respectiva.", font, sf::Color::Yellow));
@@ -511,30 +511,71 @@ int main()
                                             {
                                                 if (m.titlu_materie->getText() == materii[j].getNume())
                                                 {
+                                                    bool prag_fail = 0, fail = 0;
+
                                                     if (grade > materii[j].getNotare(serie)->getEvals()[i]->getMaxim())
                                                         throw InvalidInputError(sf::Color::Red);
 
                                                     materii[j].getNotare(serie)->getEvals()[i]->setNota(grade);
-                                                    if (grade < materii[j].getNotare(serie)->getEvals()[i]->getPrag())
-                                                        m.titlu_materie->changeColor(sf::Color::Red);
-                                                    else
+                                                    for (int k = 0; k < m.salvari.size() && fail == 0; k++)
+                                                        if (materii[j].getNotare(serie)->getEvals()[k]->getNota() < materii[j].getNotare(serie)->getEvals()[k]->getPrag() && materii[j].getNotare(serie)->getEvals()[k]->getNota() != -1)
+                                                            fail = 1;
+                                                    if (fail == 0)
                                                     {
-                                                        bool fail = 0;
-                                                        for (int k = 0; k < m.salvari.size() && fail == 0; k++)
-                                                            if (materii[j].getNotare(serie)->getEvals()[k]->getNota() < materii[j].getNotare(serie)->getEvals()[k]->getPrag())
-                                                                fail = 1;
-                                                        if (fail == 0)
-                                                            m.titlu_materie->changeColor(sf::Color::Green);
-                                                    }
+                                                        prag_fail = 0;
 
+                                                        if (m.titlu_materie->getColor() == sf::Color::Red)
+                                                        {
+                                                            m.titlu_materie->changeColor(sf::Color::Green);
+
+                                                            bool brs = 1;
+                                                            for (NoteMaterie mbr : notare_materii)
+                                                                if (mbr.titlu_materie->getColor() == sf::Color::Red)
+                                                                {
+                                                                    brs = 0;
+                                                                    break;
+                                                                }
+                                                            if (brs == 1)
+                                                                titlu_medie_finala_bursa->changeColor(sf::Color::Green);
+                                                        }
+                                                    }
+                                                    else if (fail == 1)
+                                                    {
+                                                        prag_fail = 1;
+
+                                                        if (m.titlu_materie->getColor() == sf::Color::Green)
+                                                        {
+                                                            m.titlu_materie->changeColor(sf::Color::Red);
+                                                            titlu_medie_finala_bursa->changeColor(sf::Color::Red);
+                                                            prag_fail = 1;
+                                                        }
+                                                    }
+                                                
                                                     for (std::shared_ptr<Evaluare> ev : materii[j].getNotare(serie)->getEvals())
                                                         if (ev->getNota() == -1)
                                                             complet = 0;
                                                     if (complet)
                                                     {
                                                         materii[j].getNotare(serie)->calculNotaFinala();
-                                                        if (materii[j].getNotare(serie)->getNotaFinala() < 5)
+                                                        if (materii[j].getNotare(serie)->getNotaFinala() < 5 && m.titlu_materie->getColor() == sf::Color::Green)
+                                                        {
                                                             m.titlu_materie->changeColor(sf::Color::Red);
+                                                            titlu_medie_finala_bursa->changeColor(sf::Color::Red);
+                                                        }
+                                                        else if (materii[j].getNotare(serie)->getNotaFinala() >= 5 && m.titlu_materie->getColor() == sf::Color::Red && prag_fail == 0)
+                                                        {
+                                                            m.titlu_materie->changeColor(sf::Color::Green);
+
+                                                            bool brs = 1;
+                                                            for (NoteMaterie mbr : notare_materii)
+                                                                if (mbr.titlu_materie->getColor() == sf::Color::Red)
+                                                                {
+                                                                    brs = 0;
+                                                                    break;
+                                                                }
+                                                            if (brs == 1)
+                                                                titlu_medie_finala_bursa->changeColor(sf::Color::Green);
+                                                        }
                                                         m.nota_finala->setText(std::to_string(materii[j].getNotare(serie)->getNotaFinala()));
                                                         m.nota_finala->align();
 
