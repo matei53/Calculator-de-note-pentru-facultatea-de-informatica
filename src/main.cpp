@@ -27,7 +27,7 @@ void readSubjectData(std::vector<Materie>& materii)
     std::ifstream f("..\\..\\..\\..\\src\\materii.txt");
 
     std::string line;
-    unsigned int line_number = 1;
+    unsigned int line_number = 0;
 
     while (getline(f, line))
     {
@@ -70,7 +70,6 @@ void readSubjectData(std::vector<Materie>& materii)
                 throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
             try { nota_finala = std::stof(line.substr(line.find_last_of(" "))); }
             catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
-            if (nota_finala != -1) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
             std::vector<std::shared_ptr<Evaluare>> evaluari;
             while (getline(f, line) && line.find("nota_finala") == std::string::npos && line != "-")
@@ -105,7 +104,6 @@ void readSubjectData(std::vector<Materie>& materii)
                     throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
                 try { nota = std::stof(line.substr(line.find_last_of(" "))); }
                 catch (std::invalid_argument& eroare) { throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number); }
-                if (nota != -1) throw InvalidFileContentError("Fisierul cu informatiile despre materii este incomplet. Daca ati facut modificari manuale in continut, anulati-le. Daca nu, creati un issue pe proiectul GitHub.", line_number);
 
                 evaluari.push_back(std::make_shared<Evaluare>(Evaluare(tip, parte_din_final, punctaj_maxim, prag, nota)));
             }
@@ -412,7 +410,7 @@ void addPageTwoSideObjects(std::shared_ptr<TitleText>& titlu_medie_finala_bursa,
 }
 
 void addPageTwoSubjectInputs(std::vector<Materie>& materii, const int an, const int serie, std::vector<Materie>& optionale_selectate, std::vector<Materie>& facultative_selectate,
-    std::vector<NoteMaterie>& notare_materii, sf::Font& font, Aplicatie& app)
+    std::vector<NoteMaterie>& notare_materii, sf::Font& font, Aplicatie& app, std::shared_ptr<TitleText>& titlu_medie_finala_bursa)
 {
     float x = 5, y = 5;
     for (Materie m : materii)
@@ -434,15 +432,33 @@ void addPageTwoSubjectInputs(std::vector<Materie>& materii, const int an, const 
                 float y1 = y;
                 NoteMaterie M;
                 M.titlu_materie = std::make_shared<TitleText>(TitleText({ x, y1 }, { 235, 35 }, 12, m.getNume(), font, sf::Color::Green));
+                if (m.getNotare(serie)->getNotaFinala() != -1 && m.getNotare(serie)->getNotaFinala() < 5)
+                {
+                    M.titlu_materie->changeColor(sf::Color::Red);
+                    titlu_medie_finala_bursa->changeColor(sf::Color::Red);
+                }
                 M.titlu_materie->align();
                 app.addObject(M.titlu_materie);
-                M.nota_finala = std::make_shared<Buton>(Buton({ x + 235, y1 }, { 40, 35 }, 15, "", font, sf::Color::Magenta, sf::Color::Magenta));
+                if (m.getNotare(serie)->getNotaFinala() == -1)
+                    M.nota_finala = std::make_shared<Buton>(Buton({ x + 235, y1 }, { 40, 35 }, 15, "", font, sf::Color::Magenta, sf::Color::Magenta));
+                else
+                    M.nota_finala = std::make_shared<Buton>(Buton({ x + 235, y1 }, { 40, 35 }, 15, std::to_string(m.getNotare(serie)->getNotaFinala()), font, sf::Color::Magenta, sf::Color::Magenta));
                 app.addObject(M.nota_finala);
+                M.nota_finala->align();
                 for (std::shared_ptr<Evaluare> e : m.getNotare(serie)->getEvals())
                 {
                     y1 += 35;
                     auto ev = std::make_shared<TitleText>(TitleText({ x, y1 }, { 155, 35 }, 10, std::to_string(e->getParteFinal()).substr(0, 4) + " - " + e->getTip() + " (" + std::to_string(e->getMaxim()).substr(0, 4) + ")", font, sf::Color::Green));
-                    auto inp = std::make_shared<TextInput>(TextInput({ x + 160, y1 }, { 75, 35 }, 15, "> ", font, sf::Color::Green, 7));
+                    std::shared_ptr<TextInput> inp;
+                    if (e->getNota() == -1)
+                        inp = std::make_shared<TextInput>(TextInput({ x + 160, y1 }, { 75, 35 }, 15, "> ", font, sf::Color::Green, 7));
+                    else
+                        inp = std::make_shared<TextInput>(TextInput({ x + 160, y1 }, { 75, 35 }, 15, "> " + std::to_string(e->getNota()).substr(0, 5), font, sf::Color::Green, 7));
+                    if (e->getNota() < e->getPrag() && e->getNota() != -1)
+                    {
+                        M.titlu_materie->changeColor(sf::Color::Red);
+                        titlu_medie_finala_bursa->changeColor(sf::Color::Red);
+                    }
                     auto save = std::make_shared<Buton>(Buton({ x + 240, y1 }, { 35, 35 }, 15, "OK", font, sf::Color::Yellow, sf::Color::Green));
                     ev->align(); inp->align(); save->align();
                     inp->setClickable(1);
@@ -459,6 +475,67 @@ void addPageTwoSubjectInputs(std::vector<Materie>& materii, const int an, const 
             }
         }
     }
+}
+
+void saveGrade(std::vector<Materie>& materii, const int serie, const float grade, const int i, const int j)
+{
+    //verificare daca a fost modificat fisierul manual in timpul rularii
+    std::vector<Materie> mtr;
+    readSubjectData(mtr);
+    
+    std::ifstream f("..\\..\\..\\..\\src\\materii.txt");
+    if (!f) throw InvalidFilePathError("Fisierul care contine informatiile text nu a putut fi gasit. Verificati existenta lui in fisierul src.");
+    std::string line, lines = "";
+    while (getline(f, line))
+    {
+        lines += line + "\n";
+        if (line == materii[j].getNume())
+        {
+            while (getline(f, line))
+            {
+                lines += line + "\n";
+                if (line == materii[j].getNotare(serie)->getEvals()[i]->getTip())
+                {
+                    getline(f, line); lines += line + "\n";
+                    getline(f, line); lines += line + "\n";
+                    getline(f, line); lines += line + "\n";
+                    getline(f, line); line = "nota: " + std::to_string(grade).substr(0, 4); lines += line + "\n";
+                    break;
+                }
+            }
+        }
+    }
+    f.close();
+    std::ofstream g("..\\..\\..\\..\\src\\materii.txt");
+    g << lines;
+    g.close();
+}
+
+void saveFinalGrade(std::vector<Materie>& materii, const int serie, const int j)
+{
+    std::ifstream f("..\\..\\..\\..\\src\\materii.txt");
+    if (!f) throw InvalidFilePathError("Fisierul care contine informatiile text nu a putut fi gasit. Verificati existenta lui in fisierul src.");
+    std::string line, lines = "";
+    while (getline(f, line))
+    {
+        lines += line + "\n";
+        if (line == materii[j].getNume())
+        {
+            while (getline(f, line))
+            {
+                if (line.find("nota_finala_seria") != std::string::npos)
+                {
+                    line = "nota_finala_seria" + std::to_string(serie) + ": " + std::to_string(materii[j].getNotare(serie)->getNotaFinala()); lines += line + "\n";
+                    break;
+                }
+                lines += line + "\n";
+            }
+        }
+    }
+    f.close();
+    std::ofstream g("..\\..\\..\\..\\src\\materii.txt");
+    g << lines;
+    g.close();
 }
 
 void setFinals(std::vector<NoteMaterie>& notare_materii, std::vector<Materie>& materii, std::shared_ptr<TitleText>& medie_finala_bursa, std::shared_ptr<TitleText>& medie_finala_buget,
@@ -534,6 +611,8 @@ void manageInputedGrade(std::vector<NoteMaterie>& notare_materii, Aplicatie& app
         throw InvalidInputError(sf::Color::Red);
 
     materii[j].getNotare(serie)->getEvals()[i]->setNota(grade);
+    saveGrade(materii, serie, grade, i, j);
+
     for (int k = 0; k < m.salvari.size() && fail == 0; k++)
         if (materii[j].getNotare(serie)->getEvals()[k]->getNota() < materii[j].getNotare(serie)->getEvals()[k]->getPrag() && materii[j].getNotare(serie)->getEvals()[k]->getNota() != -1)
             fail = 1;
@@ -575,6 +654,8 @@ void manageInputedGrade(std::vector<NoteMaterie>& notare_materii, Aplicatie& app
     if (complet)
     {
         materii[j].getNotare(serie)->calculNotaFinala();
+        saveFinalGrade(materii, serie, j);
+
         if (materii[j].getNotare(serie)->getNotaFinala() < 5 && m.titlu_materie->getColor() == sf::Color::Green)
         {
             m.titlu_materie->changeColor(sf::Color::Red);
@@ -757,7 +838,7 @@ int main()
                     {
                         removeFirstPageObjects(app, titlu, alegere_serie, buton_inainte, titlu_facultative, titlu_optionale, butoane_serii, butoane_optionale, butoane_facultative);
                         addPageTwoSideObjects(titlu_medie_finala_bursa, medie_finala_bursa, titlu_medie_finala_buget, medie_finala_buget, titlu_credite, total_credite_display, instructiune1, instructiune2, instructiune3, instructiune4, font, app);
-                        addPageTwoSubjectInputs(materii, an, serie, optionale_selectate, facultative_selectate, notare_materii, font, app);
+                        addPageTwoSubjectInputs(materii, an, serie, optionale_selectate, facultative_selectate, notare_materii, font, app, titlu_medie_finala_bursa);
                     }
                     setFinals(notare_materii, materii, medie_finala_bursa, medie_finala_buget, total_credite_display);
                 }
