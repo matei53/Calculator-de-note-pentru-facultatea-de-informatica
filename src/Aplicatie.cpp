@@ -6,12 +6,15 @@ Aplicatie::Aplicatie(std::string title, unsigned int width, unsigned int height)
     window.setFramerateLimit(60);
 }
 
+std::shared_ptr<Obiect> Aplicatie::clicked = nullptr;
+std::shared_ptr<TextInput> Aplicatie::active_input = nullptr;
+
 void Aplicatie::setClick(std::shared_ptr<Obiect> ob)
 {
     clicked = ob;
 }
 
-std::shared_ptr<Obiect> Aplicatie::getClick() const
+std::shared_ptr<Obiect> Aplicatie::getClick()
 {
     return clicked;
 }
@@ -148,7 +151,7 @@ void Aplicatie::removeClickableObject(std::shared_ptr<Obiect> ob)
     }
 }
 
-std::shared_ptr<TextInput> Aplicatie::getActiveInput() const
+std::shared_ptr<TextInput> Aplicatie::getActiveInput()
 {
     return active_input;
 }

@@ -272,7 +272,7 @@ void manageYearTwoOptionals(std::vector<Materie>& materii, std::vector<std::shar
         b->setClickable(0);
         app.removeClickableObject(b);
     }
-    auto b = std::dynamic_pointer_cast<Buton>(app.getClick());
+    auto b = std::dynamic_pointer_cast<Buton>(Aplicatie::getClick());
     b->changeColor(sf::Color::Cyan);
     for (Materie m : materii)
     {
@@ -286,7 +286,7 @@ void manageYearTwoOptionals(std::vector<Materie>& materii, std::vector<std::shar
 
 void manageYearThreeOptionals(std::vector<Materie>& materii, std::vector<std::shared_ptr<Buton>>& butoane_optionale, std::vector<Materie>& optionale_selectate, Aplicatie& app)
 {
-    auto b = std::dynamic_pointer_cast<Buton>(app.getClick());
+    auto b = std::dynamic_pointer_cast<Buton>(Aplicatie::getClick());
     b->changeColor(sf::Color::Cyan);
     b->setClickable(0);
     app.removeClickableObject(b);
@@ -335,7 +335,7 @@ void manageYearThreeOptionals(std::vector<Materie>& materii, std::vector<std::sh
 
 void manageFacultatives(std::vector<Materie>& materii, std::vector<std::shared_ptr<Buton>>& butoane_facultative, std::vector<Materie>& facultative_selectate, Aplicatie& app)
 {
-    auto b = std::dynamic_pointer_cast<Buton>(app.getClick());
+    auto b = std::dynamic_pointer_cast<Buton>(Aplicatie::getClick());
     b->changeColor(sf::Color::Cyan);
     b->setClickable(0);
     app.removeClickableObject(b);
@@ -684,17 +684,17 @@ void manageInputedGrade(std::vector<NoteMaterie>& notare_materii, Aplicatie& app
 
 void manageInputClick(Aplicatie& app)
 {
-    if (app.getActiveInput())
-        app.getActiveInput()->stopAnimation();
-    auto inp = std::dynamic_pointer_cast<TextInput>(app.getClick());
+    if (Aplicatie::getActiveInput())
+        Aplicatie::getActiveInput()->stopAnimation();
+    auto inp = std::dynamic_pointer_cast<TextInput>(Aplicatie::getClick());
     inp->animateInput();
-    app.setActiveInput(inp);
+    Aplicatie::setActiveInput(inp);
 }
 
 void manageSaveClick(std::vector<NoteMaterie>& notare_materii, Aplicatie& app, std::vector<Materie>& materii, const int serie, std::shared_ptr<TitleText>& titlu_medie_finala_bursa,
     std::shared_ptr<TitleText>& medie_finala_bursa, std::shared_ptr<TitleText>& medie_finala_buget, std::shared_ptr<TitleText>& total_credite_display, NoteMaterie& m, const int i)
 {
-    std::shared_ptr<Buton> sav = std::dynamic_pointer_cast<Buton>(app.getClick());
+    std::shared_ptr<Buton> sav = std::dynamic_pointer_cast<Buton>(Aplicatie::getClick());
     sav->changeAnimationColor(sf::Color::Green);
     try
     {
@@ -727,7 +727,7 @@ void manageGradeInputs(std::vector<NoteMaterie>& notare_materii, Aplicatie& app,
 {
     for (NoteMaterie m : notare_materii)
     {
-        if (std::find(m.inputuri.begin(), m.inputuri.end(), app.getClick()) != m.inputuri.end())
+        if (std::find(m.inputuri.begin(), m.inputuri.end(), Aplicatie::getClick()) != m.inputuri.end())
         {
             manageInputClick(app);
             app.setClick(nullptr);
@@ -735,7 +735,7 @@ void manageGradeInputs(std::vector<NoteMaterie>& notare_materii, Aplicatie& app,
         }
         else
             for (int i = 0; i < m.salvari.size(); i++)
-                if (m.salvari.at(i) == app.getClick())
+                if (m.salvari.at(i) == Aplicatie::getClick())
                 {
                     manageSaveClick(notare_materii, app, materii, serie, titlu_medie_finala_bursa, medie_finala_bursa, medie_finala_buget, total_credite_display, m, i);
                     app.setClick(nullptr);
@@ -797,15 +797,15 @@ int main()
             app.update();
             app.render();
 
-            if (app.getClick())
+            if (Aplicatie::getClick())
             {
-                if (std::find(butoane_serii.begin(), butoane_serii.end(), app.getClick()) != butoane_serii.end())
+                if (std::find(butoane_serii.begin(), butoane_serii.end(), Aplicatie::getClick()) != butoane_serii.end())
                 {
-                    deactivateSeriesButtons(butoane_serii, app.getClick(), app);
+                    deactivateSeriesButtons(butoane_serii, Aplicatie::getClick(), app);
                     createForwardButton(buton_inainte, font, app);
 
-                    an = app.getClick()->getText().front() - '0';
-                    serie = app.getClick()->getText().back() - '0';
+                    an = Aplicatie::getClick()->getText().front() - '0';
+                    serie = Aplicatie::getClick()->getText().back() - '0';
                     app.setClick(nullptr);
 
                     if (an == 1)
@@ -816,7 +816,7 @@ int main()
                         createYearThreeOptions(titlu_optionale, materii, butoane_optionale, font, app, an);
                 }
 
-                else if (std::find(butoane_optionale.begin(), butoane_optionale.end(), app.getClick()) != butoane_optionale.end())
+                else if (std::find(butoane_optionale.begin(), butoane_optionale.end(), Aplicatie::getClick()) != butoane_optionale.end())
                 {
                     if (an == 2)
                         manageYearTwoOptionals(materii, butoane_optionale, optionale_selectate, app);
@@ -825,13 +825,13 @@ int main()
                     app.setClick(nullptr);
                 }
 
-                else if (std::find(butoane_facultative.begin(), butoane_facultative.end(), app.getClick()) != butoane_facultative.end())
+                else if (std::find(butoane_facultative.begin(), butoane_facultative.end(), Aplicatie::getClick()) != butoane_facultative.end())
                 {
                     manageFacultatives(materii, butoane_facultative, facultative_selectate, app);
                     app.setClick(nullptr);
                 }
 
-                else if (app.getClick() == buton_inainte)
+                else if (Aplicatie::getClick() == buton_inainte)
                 {
                     app.setClick(nullptr);
                     if (checkOptionalSelection(butoane_optionale))
