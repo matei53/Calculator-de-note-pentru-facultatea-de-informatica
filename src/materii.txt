@@ -497,21 +497,51 @@ optional: 0
 facultativ: 0
 nota_finala_seria3: -1
 Examen
-parte: 10
+parte: 6.66
 max: 10
-prag: 5
+prag: 0
+nota: -1
+Laborator
+parte: 3.34
+max: 10
+prag: 0
 nota: -1
 nota_finala_seria4: -1
 Examen
-parte: 10
+parte: 6.66
+max: 10
+prag: 5
+nota: -1
+Laborator
+parte: 3.34
 max: 10
 prag: 5
 nota: -1
 nota_finala_seria5: -1
 Examen
-parte: 10
+parte: 4
 max: 10
 prag: 5
+nota: -1
+Laborator
+parte: 3
+max: 10
+prag: 5
+nota: -1
+Seminar
+parte: 3
+max: 10
+prag: 1.5
+nota: -1
+Bonus Laborator
+parte: 0.5
+max: 10
+prag: 0
+nota: -1
+Bonus Seminar
+parte: 1
+max: 10
+prag: 0
 nota: -1
 -
 Limbaje formale si automate
@@ -521,21 +551,106 @@ optional: 0
 facultativ: 0
 nota_finala_seria3: -1
 Examen
-parte: 10
+parte: 8.5
 max: 10
 prag: 5
+nota: -1
+Prezenta lab
+parte: 0.5
+max: 3
+prag: 0
+nota: -1
+Tema 1
+parte: 0.5
+max: 10
+prag: 0
+nota: -1
+Tema 2
+parte: 0.5
+max: 10
+prag: 0
+nota: -1
+Tema 3
+parte: 0.5
+max: 10
+prag: 0
+nota: -1
+Proiect bonus
+parte: 1.5
+max: 1.5
+prag: 0
+nota: -1
+Bonus seminar
+parte: 0.5
+max: 0.5
+prag: 0
+nota: -1
+Bonus Kahoot-uri
+parte: 0.5
+max: 0.5
+prag: 0
 nota: -1
 nota_finala_seria4: -1
 Examen
-parte: 10
-max: 10
-prag: 5
+parte: 9
+max: 90
+prag: 0
+nota: -1
+Laborator
+parte: 3
+max: 30
+prag: 0
+nota: -1
+Seminar
+parte: 3
+max: 30
+prag: 0
+nota: -1
+Teme curs
+parte: 1
+max: 1
+prag: 0
 nota: -1
 nota_finala_seria5: -1
 Examen
-parte: 10
+parte: 8.5
 max: 10
 prag: 5
+nota: -1
+Prezenta lab
+parte: 0.5
+max: 3
+prag: 0
+nota: -1
+Tema 1
+parte: 0.5
+max: 10
+prag: 0
+nota: -1
+Tema 2
+parte: 0.5
+max: 10
+prag: 0
+nota: -1
+Tema 3
+parte: 0.5
+max: 10
+prag: 0
+nota: -1
+Proiect bonus
+parte: 1.5
+max: 1.5
+prag: 0
+nota: -1
+Bonus seminar
+parte: 0.5
+max: 0.5
+prag: 0
+nota: -1
+Bonus Kahoot-uri
+parte: 0.5
+max: 0.5
+prag: 0
 nota: -1
 -
 Programare orientata pe obiecte
@@ -545,21 +660,81 @@ optional: 0
 facultativ: 0
 nota_finala_seria3: -1
 Examen
-parte: 10
+parte: 5
 max: 10
 prag: 5
+nota: -1
+Colocviu
+parte: 3.25
+max: 13
+prag: 5
+nota: -1
+Proiecte
+parte: 3
+max: 12
+prag: 5
+nota: -1
+Bonus Kahoot-uri
+parte: 0.5
+max: 0.5
+prag: 0
+nota: -1
+Bonus seminar
+parte: 0.5
+max: 0.5
+prag: 0
 nota: -1
 nota_finala_seria4: -1
 Examen
-parte: 10
+parte: 5
 max: 10
 prag: 5
 nota: -1
+Colocviu
+parte: 3.25
+max: 13
+prag: 5
+nota: -1
+Proiecte
+parte: 3
+max: 12
+prag: 5
+nota: -1
+Bonus Kahoot-uri
+parte: 0.5
+max: 0.5
+prag: 0
+nota: -1
+Bonus seminar
+parte: 0.5
+max: 0.5
+prag: 0
+nota: -1
 nota_finala_seria5: -1
 Examen
-parte: 10
+parte: 5
 max: 10
 prag: 5
+nota: -1
+Colocviu
+parte: 3.25
+max: 13
+prag: 5
+nota: -1
+Proiecte
+parte: 3
+max: 12
+prag: 5
+nota: -1
+Bonus Kahoot-uri
+parte: 0.5
+max: 0.5
+prag: 0
+nota: -1
+Bonus seminar
+parte: 0.5
+max: 0.5
+prag: 0
 nota: -1
 -
 Logica matematica si computationala
@@ -567,23 +742,38 @@ credit: 4
 an: 1
 optional: 0
 facultativ: 0
-nota_finala_seria3: -1
+nota_finala_seria3: 8
 Examen
-parte: 10
-max: 10
-prag: 5
+parte: 8
+max: 8
+prag: 3.5
+nota: -1
+Colocviu
+parte: 4
+max: 4
+prag: 1.5
 nota: -1
 nota_finala_seria4: -1
 Examen
-parte: 10
+parte: 7
 max: 10
-prag: 5
+prag: 0
+nota: -1
+Teme
+parte: 3
+max: 10
+prag: 0
 nota: -1
 nota_finala_seria5: -1
 Examen
-parte: 10
-max: 10
-prag: 5
+parte: 8
+max: 8
+prag: 3.5
+nota: -1
+Colocviu
+parte: 4
+max: 4
+prag: 1.5
 nota: -1
 -
 Limba straina 1
