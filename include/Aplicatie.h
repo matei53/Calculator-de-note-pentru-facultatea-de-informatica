@@ -22,7 +22,7 @@ class Aplicatie
 
 public:
 	Aplicatie(std::string, unsigned int, unsigned int);
-	void setClick(std::shared_ptr<Obiect>);
+	static void setClick(std::shared_ptr<Obiect>);
 	static std::shared_ptr<Obiect> getClick();
 
 	void update();

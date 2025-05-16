@@ -5,11 +5,11 @@
 
 struct NoteMaterie
 {
-    std::shared_ptr<TitleText> titlu_materie;
-    std::shared_ptr<Buton> nota_finala;
-    std::vector<std::shared_ptr<TitleText>> metode_evaluare;
-    std::vector<std::shared_ptr<TextInput>> inputuri;
-    std::vector<std::shared_ptr<Buton>> salvari;
+    std::shared_ptr<Obiect> titlu_materie;
+    std::shared_ptr<Obiect> nota_finala;
+    std::vector<std::shared_ptr<Obiect>> metode_evaluare;
+    std::vector<std::shared_ptr<Obiect>> inputuri;
+    std::vector<std::shared_ptr<Obiect>> salvari;
 };
 
 void checkFiles()
@@ -114,22 +114,22 @@ void readSubjectData(std::vector<Materie>& materii)
     f.close();
 }
 
-void createTitle(std::shared_ptr<TitleText>& titlu, sf::Font& font, Aplicatie& app)
+void createTitle(std::shared_ptr<Obiect>& titlu, sf::Font& font, Aplicatie& app)
 {
     titlu = std::make_shared<TitleText>(TitleText({ 0, 0 }, { 1900, 135 }, 80, "Welcome", font, sf::Color::Yellow, sf::Color::Red, sf::Color::Green, sf::Color::Blue));
-    titlu->animateColors();
+    std::dynamic_pointer_cast<TitleText>(titlu)->animateColors();
     titlu->align();
     app.addObject(titlu);
 }
 
-void createSeriesChoiceBox(std::shared_ptr<TitleText>& alegere_serie, sf::Font& font, Aplicatie& app)
+void createSeriesChoiceBox(std::shared_ptr<Obiect>& alegere_serie, sf::Font& font, Aplicatie& app)
 {
     alegere_serie = std::make_shared<TitleText>(TitleText({ 0, 155 }, { 380, 85 }, 50, "Alegeti seria", font, sf::Color::Yellow));
     alegere_serie->align();
     app.addObject(alegere_serie);
 }
 
-void createSeriesButtons(std::vector<std::shared_ptr<Buton>>& butoane_serii, sf::Font& font, Aplicatie& app)
+void createSeriesButtons(std::vector<std::shared_ptr<Obiect>>& butoane_serii, sf::Font& font, Aplicatie& app)
 {
     butoane_serii.push_back(std::make_shared<Buton>(Buton({ 400, 155 }, { 85, 85 }, 50, "13", font, sf::Color::Green, sf::Color::Yellow)));
     butoane_serii.push_back(std::make_shared<Buton>(Buton({ 500, 155 }, { 85, 85 }, 50, "14", font, sf::Color::Green, sf::Color::Yellow)));
@@ -141,7 +141,7 @@ void createSeriesButtons(std::vector<std::shared_ptr<Buton>>& butoane_serii, sf:
     butoane_serii.push_back(std::make_shared<Buton>(Buton({ 1100, 155 }, { 85, 85 }, 50, "34", font, sf::Color::Green, sf::Color::Yellow)));
     butoane_serii.push_back(std::make_shared<Buton>(Buton({ 1200, 155 }, { 85, 85 }, 50, "35", font, sf::Color::Green, sf::Color::Yellow)));
 
-    for (std::shared_ptr<Buton> b : butoane_serii)
+    for (std::shared_ptr<Obiect> b : butoane_serii)
     {
         b->align();
         b->setClickable(1);
@@ -149,7 +149,7 @@ void createSeriesButtons(std::vector<std::shared_ptr<Buton>>& butoane_serii, sf:
     }
 }
 
-void createForwardButton(std::shared_ptr<Buton>& buton_inainte, sf::Font& font, Aplicatie& app)
+void createForwardButton(std::shared_ptr<Obiect>& buton_inainte, sf::Font& font, Aplicatie& app)
 {
     buton_inainte = std::make_shared<Buton>(Buton({ 1300, 155 }, { 185, 85 }, 50, "Inainte", font, sf::Color::Magenta, sf::Color::Red));
     buton_inainte->setClickable(1);
@@ -157,9 +157,9 @@ void createForwardButton(std::shared_ptr<Buton>& buton_inainte, sf::Font& font, 
     app.addObject(buton_inainte);
 }
 
-void deactivateSeriesButtons(std::vector<std::shared_ptr<Buton>>& butoane_serii, std::shared_ptr<Obiect>& clicked_button, Aplicatie& app)
+void deactivateSeriesButtons(std::vector<std::shared_ptr<Obiect>>& butoane_serii, std::shared_ptr<Obiect>& clicked_button, Aplicatie& app)
 {
-    for (std::shared_ptr<Buton> b : butoane_serii)
+    for (std::shared_ptr<Obiect> b : butoane_serii)
     {
         b->setClickable(0);
         app.removeClickableObject(b);
@@ -168,7 +168,7 @@ void deactivateSeriesButtons(std::vector<std::shared_ptr<Buton>>& butoane_serii,
     b->animateClick();
 }
 
-void createYearOneOptions(std::shared_ptr<TitleText>& titlu_facultative, std::vector<Materie>& materii, std::vector<std::shared_ptr<Buton>>& butoane_facultative,
+void createYearOneOptions(std::shared_ptr<Obiect>& titlu_facultative, std::vector<Materie>& materii, std::vector<std::shared_ptr<Obiect>>& butoane_facultative,
     sf::Font& font, Aplicatie& app, const int an)
 {
     titlu_facultative = std::make_shared<TitleText>(TitleText({ 0, 250 }, { 1000, 75 }, 40, "Alegeti facultativele la care doriti sa participati", font, sf::Color::Yellow));
@@ -184,7 +184,7 @@ void createYearOneOptions(std::shared_ptr<TitleText>& titlu_facultative, std::ve
             y_fac += 75;
         }
     }
-    for (std::shared_ptr<Buton> b : butoane_facultative)
+    for (std::shared_ptr<Obiect> b : butoane_facultative)
     {
         b->align();
         b->setClickable(1);
@@ -192,8 +192,8 @@ void createYearOneOptions(std::shared_ptr<TitleText>& titlu_facultative, std::ve
     }
 }
 
-void createYearTwoOptions(std::shared_ptr<TitleText>& titlu_facultative, std::shared_ptr<TitleText>& titlu_optionale, std::vector<Materie>& materii,
-    std::vector<std::shared_ptr<Buton>>& butoane_facultative, std::vector<std::shared_ptr<Buton>>& butoane_optionale, sf::Font& font, Aplicatie& app, const int an)
+void createYearTwoOptions(std::shared_ptr<Obiect>& titlu_facultative, std::shared_ptr<Obiect>& titlu_optionale, std::vector<Materie>& materii,
+    std::vector<std::shared_ptr<Obiect>>& butoane_facultative, std::vector<std::shared_ptr<Obiect>>& butoane_optionale, sf::Font& font, Aplicatie& app, const int an)
 {
     titlu_facultative = std::make_shared<TitleText>(TitleText({ 0, 250 }, { 1000, 75 }, 40, "Alegeti facultativele la care doriti sa participati", font, sf::Color::Yellow));
     app.addObject(titlu_facultative);
@@ -208,7 +208,7 @@ void createYearTwoOptions(std::shared_ptr<TitleText>& titlu_facultative, std::sh
             y += 75;
         }
     }
-    for (std::shared_ptr<Buton> b : butoane_facultative)
+    for (std::shared_ptr<Obiect> b : butoane_facultative)
     {
         b->align();
         b->setClickable(1);
@@ -228,7 +228,7 @@ void createYearTwoOptions(std::shared_ptr<TitleText>& titlu_facultative, std::sh
             y += 75;
         }
     }
-    for (std::shared_ptr<Buton> b : butoane_optionale)
+    for (std::shared_ptr<Obiect> b : butoane_optionale)
     {
         b->align();
         b->setClickable(1);
@@ -236,7 +236,7 @@ void createYearTwoOptions(std::shared_ptr<TitleText>& titlu_facultative, std::sh
     }
 }
 
-void createYearThreeOptions(std::shared_ptr<TitleText>& titlu_optionale, std::vector<Materie>& materii, std::vector<std::shared_ptr<Buton>>& butoane_optionale,
+void createYearThreeOptions(std::shared_ptr<Obiect>& titlu_optionale, std::vector<Materie>& materii, std::vector<std::shared_ptr<Obiect>>& butoane_optionale,
     sf::Font& font, Aplicatie& app, const int an)
 {
     titlu_optionale = std::make_shared<TitleText>(TitleText({ 0, 250 }, { 1700, 75 }, 30, "Alegeti optionalele la care veti participa.\nTrebuie sa alegeti 3 pentru semestrul 1 (primele doua coloane) si 3 pentru semestrul 2 (ultimele doua coloane).", font, sf::Color::Yellow));
@@ -257,7 +257,7 @@ void createYearThreeOptions(std::shared_ptr<TitleText>& titlu_optionale, std::ve
             }
         }
     }
-    for (std::shared_ptr<Buton> b : butoane_optionale)
+    for (std::shared_ptr<Obiect> b : butoane_optionale)
     {
         b->align();
         b->setClickable(1);
@@ -265,9 +265,9 @@ void createYearThreeOptions(std::shared_ptr<TitleText>& titlu_optionale, std::ve
     }
 }
 
-void manageYearTwoOptionals(std::vector<Materie>& materii, std::vector<std::shared_ptr<Buton>>& butoane_optionale, std::vector<Materie>& optionale_selectate, Aplicatie& app)
+void manageYearTwoOptionals(std::vector<Materie>& materii, std::vector<std::shared_ptr<Obiect>>& butoane_optionale, std::vector<Materie>& optionale_selectate, Aplicatie& app)
 {
-    for (std::shared_ptr<Buton> b : butoane_optionale)
+    for (std::shared_ptr<Obiect> b : butoane_optionale)
     {
         b->setClickable(0);
         app.removeClickableObject(b);
@@ -284,7 +284,7 @@ void manageYearTwoOptionals(std::vector<Materie>& materii, std::vector<std::shar
     }
 }
 
-void manageYearThreeOptionals(std::vector<Materie>& materii, std::vector<std::shared_ptr<Buton>>& butoane_optionale, std::vector<Materie>& optionale_selectate, Aplicatie& app)
+void manageYearThreeOptionals(std::vector<Materie>& materii, std::vector<std::shared_ptr<Obiect>>& butoane_optionale, std::vector<Materie>& optionale_selectate, Aplicatie& app)
 {
     auto b = std::dynamic_pointer_cast<Buton>(Aplicatie::getClick());
     b->changeColor(sf::Color::Cyan);
@@ -333,7 +333,7 @@ void manageYearThreeOptionals(std::vector<Materie>& materii, std::vector<std::sh
     }
 }
 
-void manageFacultatives(std::vector<Materie>& materii, std::vector<std::shared_ptr<Buton>>& butoane_facultative, std::vector<Materie>& facultative_selectate, Aplicatie& app)
+void manageFacultatives(std::vector<Materie>& materii, std::vector<std::shared_ptr<Obiect>>& butoane_facultative, std::vector<Materie>& facultative_selectate, Aplicatie& app)
 {
     auto b = std::dynamic_pointer_cast<Buton>(Aplicatie::getClick());
     b->changeColor(sf::Color::Cyan);
@@ -350,32 +350,32 @@ void manageFacultatives(std::vector<Materie>& materii, std::vector<std::shared_p
     }
 }
 
-bool checkOptionalSelection(std::vector<std::shared_ptr<Buton>>& butoane_optionale)
+bool checkOptionalSelection(std::vector<std::shared_ptr<Obiect>>& butoane_optionale)
 {
     bool ok = 1;
-    for (std::shared_ptr<Buton> b : butoane_optionale)
+    for (std::shared_ptr<Obiect> b : butoane_optionale)
         if (b->isClickable())
             return 0;
     return 1;
 }
 
-void removeFirstPageObjects(Aplicatie& app, std::shared_ptr<TitleText>& titlu, std::shared_ptr<TitleText>& alegere_serie, std::shared_ptr<Buton>& buton_inainte,
-    std::shared_ptr<TitleText>& titlu_facultative, std::shared_ptr<TitleText>& titlu_optionale, std::vector<std::shared_ptr<Buton>>& butoane_serii,
-    std::vector<std::shared_ptr<Buton>>& butoane_optionale, std::vector<std::shared_ptr<Buton>>& butoane_facultative)
+void removeFirstPageObjects(Aplicatie& app, std::shared_ptr<Obiect>& titlu, std::shared_ptr<Obiect>& alegere_serie, std::shared_ptr<Obiect>& buton_inainte,
+    std::shared_ptr<Obiect>& titlu_facultative, std::shared_ptr<Obiect>& titlu_optionale, std::vector<std::shared_ptr<Obiect>>& butoane_serii,
+    std::vector<std::shared_ptr<Obiect>>& butoane_optionale, std::vector<std::shared_ptr<Obiect>>& butoane_facultative)
 {
     app.removeObject(titlu); titlu.reset();
     app.removeObject(alegere_serie); alegere_serie.reset();
     app.removeObject(buton_inainte); buton_inainte.reset();
     app.removeObject(titlu_facultative); titlu_facultative.reset();
     app.removeObject(titlu_optionale); titlu_optionale.reset();
-    for (std::shared_ptr<Buton> b : butoane_serii) { app.removeObject(b); b.reset(); }
-    for (std::shared_ptr<Buton> b : butoane_optionale) { app.removeObject(b); b.reset(); }
-    for (std::shared_ptr<Buton> b : butoane_facultative) { app.removeObject(b); b.reset(); }
+    for (std::shared_ptr<Obiect> b : butoane_serii) { app.removeObject(b); b.reset(); }
+    for (std::shared_ptr<Obiect> b : butoane_optionale) { app.removeObject(b); b.reset(); }
+    for (std::shared_ptr<Obiect> b : butoane_facultative) { app.removeObject(b); b.reset(); }
 }
 
-void addPageTwoSideObjects(std::shared_ptr<TitleText>& titlu_medie_finala_bursa, std::shared_ptr<TitleText>& medie_finala_bursa, std::shared_ptr<TitleText>& titlu_medie_finala_buget,
-    std::shared_ptr<TitleText>& medie_finala_buget, std::shared_ptr<TitleText>& titlu_credite, std::shared_ptr<TitleText>& total_credite_display,
-    std::shared_ptr<TitleText>& instructiune1, std::shared_ptr<TitleText>& instructiune2, std::shared_ptr<TitleText>& instructiune3, std::shared_ptr<TitleText>& instructiune4,
+void addPageTwoSideObjects(std::shared_ptr<Obiect>& titlu_medie_finala_bursa, std::shared_ptr<Obiect>& medie_finala_bursa, std::shared_ptr<Obiect>& titlu_medie_finala_buget,
+    std::shared_ptr<Obiect>& medie_finala_buget, std::shared_ptr<Obiect>& titlu_credite, std::shared_ptr<Obiect>& total_credite_display,
+    std::shared_ptr<Obiect>& instructiune1, std::shared_ptr<Obiect>& instructiune2, std::shared_ptr<Obiect>& instructiune3, std::shared_ptr<Obiect>& instructiune4,
     sf::Font& font, Aplicatie& app)
 {
     titlu_medie_finala_bursa = std::make_shared<TitleText>(TitleText({ 1700, 5 }, { 195, 35 }, 20, "MEDIE BURSA", font, sf::Color::Magenta));
@@ -410,7 +410,7 @@ void addPageTwoSideObjects(std::shared_ptr<TitleText>& titlu_medie_finala_bursa,
 }
 
 void addPageTwoSubjectInputs(std::vector<Materie>& materii, const int an, const int serie, std::vector<Materie>& optionale_selectate, std::vector<Materie>& facultative_selectate,
-    std::vector<NoteMaterie>& notare_materii, sf::Font& font, Aplicatie& app, std::shared_ptr<TitleText>& titlu_medie_finala_bursa)
+    std::vector<NoteMaterie>& notare_materii, sf::Font& font, Aplicatie& app, std::shared_ptr<Obiect>& titlu_medie_finala_bursa)
 {
     float x = 5, y = 5;
     for (Materie m : materii)
@@ -449,7 +449,7 @@ void addPageTwoSubjectInputs(std::vector<Materie>& materii, const int an, const 
                 {
                     y1 += 35;
                     auto ev = std::make_shared<TitleText>(TitleText({ x, y1 }, { 155, 35 }, 10, std::to_string(e->getParteFinal()).substr(0, 4) + " - " + e->getTip() + " (" + std::to_string(e->getMaxim()).substr(0, 4) + ")", font, sf::Color::Green));
-                    std::shared_ptr<TextInput> inp;
+                    std::shared_ptr<Obiect> inp;
                     if (e->getNota() == -1)
                         inp = std::make_shared<TextInput>(TextInput({ x + 160, y1 }, { 75, 35 }, 15, "> ", font, sf::Color::Green, 7));
                     else
@@ -538,8 +538,8 @@ void saveFinalGrade(std::vector<Materie>& materii, const int serie, const int j)
     g.close();
 }
 
-void setFinals(std::vector<NoteMaterie>& notare_materii, std::vector<Materie>& materii, std::shared_ptr<TitleText>& medie_finala_bursa, std::shared_ptr<TitleText>& medie_finala_buget,
-    std::shared_ptr<TitleText>& total_credite_display)
+void setFinals(std::vector<NoteMaterie>& notare_materii, std::vector<Materie>& materii, std::shared_ptr<Obiect>& medie_finala_bursa, std::shared_ptr<Obiect>& medie_finala_buget,
+    std::shared_ptr<Obiect>& total_credite_display)
 {
     float nota_bursa = 0;
     int puncte_buget = 0;
@@ -601,8 +601,8 @@ void setFinals(std::vector<NoteMaterie>& notare_materii, std::vector<Materie>& m
     total_credite_display->align();
 }
 
-void manageInputedGrade(std::vector<NoteMaterie>& notare_materii, Aplicatie& app, std::vector<Materie>& materii, const int serie, std::shared_ptr<TitleText>& titlu_medie_finala_bursa,
-    std::shared_ptr<TitleText>& medie_finala_bursa, std::shared_ptr<TitleText>& medie_finala_buget, std::shared_ptr<TitleText>& total_credite_display, NoteMaterie& m, const float grade,
+void manageInputedGrade(std::vector<NoteMaterie>& notare_materii, Aplicatie& app, std::vector<Materie>& materii, const int serie, std::shared_ptr<Obiect>& titlu_medie_finala_bursa,
+    std::shared_ptr<Obiect>& medie_finala_bursa, std::shared_ptr<Obiect>& medie_finala_buget, std::shared_ptr<Obiect>& total_credite_display, NoteMaterie& m, const float grade,
     const int i, const int j)
 {
     bool prag_fail = 0, fail = 0, complet = 1;
@@ -691,8 +691,8 @@ void manageInputClick(Aplicatie& app)
     Aplicatie::setActiveInput(inp);
 }
 
-void manageSaveClick(std::vector<NoteMaterie>& notare_materii, Aplicatie& app, std::vector<Materie>& materii, const int serie, std::shared_ptr<TitleText>& titlu_medie_finala_bursa,
-    std::shared_ptr<TitleText>& medie_finala_bursa, std::shared_ptr<TitleText>& medie_finala_buget, std::shared_ptr<TitleText>& total_credite_display, NoteMaterie& m, const int i)
+void manageSaveClick(std::vector<NoteMaterie>& notare_materii, Aplicatie& app, std::vector<Materie>& materii, const int serie, std::shared_ptr<Obiect>& titlu_medie_finala_bursa,
+    std::shared_ptr<Obiect>& medie_finala_bursa, std::shared_ptr<Obiect>& medie_finala_buget, std::shared_ptr<Obiect>& total_credite_display, NoteMaterie& m, const int i)
 {
     std::shared_ptr<Buton> sav = std::dynamic_pointer_cast<Buton>(Aplicatie::getClick());
     sav->changeAnimationColor(sf::Color::Green);
@@ -722,15 +722,15 @@ void manageSaveClick(std::vector<NoteMaterie>& notare_materii, Aplicatie& app, s
     }
 }
 
-void manageGradeInputs(std::vector<NoteMaterie>& notare_materii, Aplicatie& app, std::vector<Materie>& materii, const int serie, std::shared_ptr<TitleText>& titlu_medie_finala_bursa,
-    std::shared_ptr<TitleText>& medie_finala_bursa, std::shared_ptr<TitleText>& medie_finala_buget, std::shared_ptr<TitleText>& total_credite_display)
+void manageGradeInputs(std::vector<NoteMaterie>& notare_materii, Aplicatie& app, std::vector<Materie>& materii, const int serie, std::shared_ptr<Obiect>& titlu_medie_finala_bursa,
+    std::shared_ptr<Obiect>& medie_finala_bursa, std::shared_ptr<Obiect>& medie_finala_buget, std::shared_ptr<Obiect>& total_credite_display)
 {
     for (NoteMaterie m : notare_materii)
     {
         if (std::find(m.inputuri.begin(), m.inputuri.end(), Aplicatie::getClick()) != m.inputuri.end())
         {
             manageInputClick(app);
-            app.setClick(nullptr);
+            Aplicatie::setClick(nullptr);
             break;
         }
         else
@@ -738,7 +738,7 @@ void manageGradeInputs(std::vector<NoteMaterie>& notare_materii, Aplicatie& app,
                 if (m.salvari.at(i) == Aplicatie::getClick())
                 {
                     manageSaveClick(notare_materii, app, materii, serie, titlu_medie_finala_bursa, medie_finala_bursa, medie_finala_buget, total_credite_display, m, i);
-                    app.setClick(nullptr);
+                    Aplicatie::setClick(nullptr);
                     break;
                 }
     }
@@ -757,40 +757,40 @@ int main()
         Aplicatie app("Calculator note", 1900, 980);
         int an = 0, serie = 0;
 
-        std::shared_ptr<TitleText> titlu;
+        std::shared_ptr<Obiect> titlu;
         createTitle(titlu, font, app);
 
-        std::shared_ptr<TitleText> alegere_serie;
+        std::shared_ptr<Obiect> alegere_serie;
         createSeriesChoiceBox(alegere_serie, font, app);
 
-        std::vector<std::shared_ptr<Buton>> butoane_serii;
+        std::vector<std::shared_ptr<Obiect>> butoane_serii;
         createSeriesButtons(butoane_serii, font, app);
 
-        std::shared_ptr<Buton> buton_inainte;
+        std::shared_ptr<Obiect> buton_inainte;
 
-        std::shared_ptr<TitleText> titlu_facultative;
-        std::vector<std::shared_ptr<Buton>> butoane_facultative;
+        std::shared_ptr<Obiect> titlu_facultative;
+        std::vector<std::shared_ptr<Obiect>> butoane_facultative;
         std::vector<Materie> facultative_selectate;
 
-        std::shared_ptr<TitleText> titlu_optionale;
-        std::vector<std::shared_ptr<Buton>> butoane_optionale;
+        std::shared_ptr<Obiect> titlu_optionale;
+        std::vector<std::shared_ptr<Obiect>> butoane_optionale;
         std::vector<Materie> optionale_selectate;
 
         std::vector<NoteMaterie> notare_materii;
 
-        std::shared_ptr<TitleText> titlu_medie_finala_bursa;
-        std::shared_ptr<TitleText> medie_finala_bursa;
+        std::shared_ptr<Obiect> titlu_medie_finala_bursa;
+        std::shared_ptr<Obiect> medie_finala_bursa;
 
-        std::shared_ptr<TitleText> titlu_medie_finala_buget;
-        std::shared_ptr<TitleText> medie_finala_buget;
+        std::shared_ptr<Obiect> titlu_medie_finala_buget;
+        std::shared_ptr<Obiect> medie_finala_buget;
 
-        std::shared_ptr<TitleText> titlu_credite;
-        std::shared_ptr<TitleText> total_credite_display;
+        std::shared_ptr<Obiect> titlu_credite;
+        std::shared_ptr<Obiect> total_credite_display;
             
-        std::shared_ptr<TitleText> instructiune1;
-        std::shared_ptr<TitleText> instructiune2;
-        std::shared_ptr<TitleText> instructiune3;
-        std::shared_ptr<TitleText> instructiune4;
+        std::shared_ptr<Obiect> instructiune1;
+        std::shared_ptr<Obiect> instructiune2;
+        std::shared_ptr<Obiect> instructiune3;
+        std::shared_ptr<Obiect> instructiune4;
 
         while (app.isRunning())
         {
@@ -806,7 +806,7 @@ int main()
 
                     an = Aplicatie::getClick()->getText().front() - '0';
                     serie = Aplicatie::getClick()->getText().back() - '0';
-                    app.setClick(nullptr);
+                    Aplicatie::setClick(nullptr);
 
                     if (an == 1)
                         createYearOneOptions(titlu_facultative, materii, butoane_facultative, font, app, an);
@@ -822,18 +822,18 @@ int main()
                         manageYearTwoOptionals(materii, butoane_optionale, optionale_selectate, app);
                     else if (an == 3)
                         manageYearThreeOptionals(materii, butoane_optionale, optionale_selectate, app);
-                    app.setClick(nullptr);
+                    Aplicatie::setClick(nullptr);
                 }
 
                 else if (std::find(butoane_facultative.begin(), butoane_facultative.end(), Aplicatie::getClick()) != butoane_facultative.end())
                 {
                     manageFacultatives(materii, butoane_facultative, facultative_selectate, app);
-                    app.setClick(nullptr);
+                    Aplicatie::setClick(nullptr);
                 }
 
                 else if (Aplicatie::getClick() == buton_inainte)
                 {
-                    app.setClick(nullptr);
+                    Aplicatie::setClick(nullptr);
                     if (checkOptionalSelection(butoane_optionale))
                     {
                         removeFirstPageObjects(app, titlu, alegere_serie, buton_inainte, titlu_facultative, titlu_optionale, butoane_serii, butoane_optionale, butoane_facultative);

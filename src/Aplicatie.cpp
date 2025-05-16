@@ -106,7 +106,7 @@ void Aplicatie::updateEvents()
                         mouse_position.y >= leftUpper.y &&
                         mouse_position.y <= rightBottom.y)
                     {
-                        clicked = object;
+                        Aplicatie::setClick(object);
                         break;
                     }
                 }
