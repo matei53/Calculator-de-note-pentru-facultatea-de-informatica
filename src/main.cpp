@@ -2,7 +2,6 @@
 #include "Materie.h"
 #include "Erori.h"
 #include <algorithm>
-#include <cmath>
 #include <fstream>
 
 struct NoteMaterie
