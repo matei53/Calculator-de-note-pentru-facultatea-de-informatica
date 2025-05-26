@@ -799,13 +799,14 @@ int main()
 
             if (Aplicatie::getClick())
             {
-                if (std::find(butoane_serii.begin(), butoane_serii.end(), Aplicatie::getClick()) != butoane_serii.end())
+                auto b = Aplicatie::getClick();
+                if (std::find(butoane_serii.begin(), butoane_serii.end(), b) != butoane_serii.end())
                 {
-                    deactivateSeriesButtons(butoane_serii, Aplicatie::getClick(), app);
+                    deactivateSeriesButtons(butoane_serii, b, app);
                     createForwardButton(buton_inainte, font, app);
 
-                    an = Aplicatie::getClick()->getText().front() - '0';
-                    serie = Aplicatie::getClick()->getText().back() - '0';
+                    an = b->getText().front() - '0';
+                    serie = b->getText().back() - '0';
                     Aplicatie::setClick(nullptr);
 
                     if (an == 1)
@@ -816,7 +817,7 @@ int main()
                         createYearThreeOptions(titlu_optionale, materii, butoane_optionale, font, app, an);
                 }
 
-                else if (std::find(butoane_optionale.begin(), butoane_optionale.end(), Aplicatie::getClick()) != butoane_optionale.end())
+                else if (std::find(butoane_optionale.begin(), butoane_optionale.end(), b) != butoane_optionale.end())
                 {
                     if (an == 2)
                         manageYearTwoOptionals(materii, butoane_optionale, optionale_selectate, app);
@@ -825,13 +826,13 @@ int main()
                     Aplicatie::setClick(nullptr);
                 }
 
-                else if (std::find(butoane_facultative.begin(), butoane_facultative.end(), Aplicatie::getClick()) != butoane_facultative.end())
+                else if (std::find(butoane_facultative.begin(), butoane_facultative.end(), b) != butoane_facultative.end())
                 {
                     manageFacultatives(materii, butoane_facultative, facultative_selectate, app);
                     Aplicatie::setClick(nullptr);
                 }
 
-                else if (Aplicatie::getClick() == buton_inainte)
+                else if (b == buton_inainte)
                 {
                     Aplicatie::setClick(nullptr);
                     if (checkOptionalSelection(butoane_optionale))
