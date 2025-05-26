@@ -6,7 +6,7 @@
 #include "TextInput.h"
 
 #include <vector>
-#include <functional>
+#include <algorithm>
 
 class Aplicatie
 {

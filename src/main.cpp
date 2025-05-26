@@ -1,7 +1,6 @@
 #include "Aplicatie.h"
 #include "Materie.h"
 #include "Erori.h"
-#include <algorithm>
 #include <fstream>
 
 struct NoteMaterie
